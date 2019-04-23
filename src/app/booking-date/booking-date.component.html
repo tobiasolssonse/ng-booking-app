@@ -1,11 +1,12 @@
-  <form class="col-md-12">
-      <div class="form-group">
+  <div class="col-md-12">
+      <div class="form-group ">
         <label for="checkin">Check in</label>
         <input type="date" 
           class="form-control" 
           id="checkin" 
           name="checkin"
-          [ngModel]="checkInDate" (ngModelChange)="checkInDate = $event"
+          (input)= "onUpdateCheckInDate($event)"
+          [(ngModel)]="todaysDate" 
           required>
       </div>
  
@@ -15,12 +16,10 @@
           class="form-control" 
           id="checkout"
           name="checkout"
-          [ngModel]="checkOutDate" (ngModelChange)="checkOutDate = $event"
+          (input)= "onUpdateCheckInDate($event)"
           required>
-      </div>
- 
-      <button type="submit" class="btn btn-success">Submit</button>
-      
-    </form>
-    <p *ngIf=checkInDate>Check in: {{checkInDate}}</p>
-    <p *ngIf=checkOutDate>Check in: {{checkOutDate}}</p>
+      </div>     
+    </div>
+    <p *ngIf="checkInDate">Check in:{{checkInDate}}</p>
+    <p *ngIf="checkOutDate">Check out: {{checkOutDate}}</p>
+    <p>Date = {{ today | date : "'today is ' MMMM d, y" }}</p>
