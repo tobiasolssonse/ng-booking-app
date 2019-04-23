@@ -1,5 +1,6 @@
   <div 
-    (click)="onSetActiveRoom($event)"
+    #singleRoom
+    (toggleAsActiveRoom)="toggleAsActiveRoom(singleRoom)"
     class="single-room">
       <img class="single-room-image" src="{{room.imagePath}}" />
       <h3>{{room.name}}</h3>

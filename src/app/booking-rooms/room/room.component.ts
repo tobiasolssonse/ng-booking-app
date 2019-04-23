@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Room } from '../room.model';
 @Component({
   selector: 'room',
@@ -7,11 +7,10 @@ import { Room } from '../room.model';
 })
 export class RoomComponent implements OnInit {
   @Input('room') room: Room;
+  @Output() toggleAsActiveRoom = new EventEmitter<Room>();
+
   constructor() { }
 
   ngOnInit() {
-  }
-  onSetActiveRoom(event: Event){
-    console.log('active room: ', event );
   }
 }
