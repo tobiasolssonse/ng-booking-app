@@ -4,7 +4,7 @@
         <input type="date" 
           class="form-control" 
           id="checkin" 
-          name="checkin"
+          [ngModel]= "checkInDate"
           [min]="minDate"
           (input)= "onUpdateCheckInDate($event)"
           required>
@@ -15,11 +15,10 @@
         <input type="date" 
           class="form-control" 
           id="checkout"
-          name="checkout"
           [min]="checkOutMinDate"
+          [ngModel]= "checkOutDate"
           (input)= "onUpdateCheckOutDate($event)"
           required>
       </div>     
     </div>
-    <p *ngIf="checkInDate">Check in:{{checkInDate}}</p>
-    <p *ngIf="checkOutDate">Check out:{{checkOutDate}}</p>
+{{numberOfNights}}
