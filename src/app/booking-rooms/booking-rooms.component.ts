@@ -36,7 +36,7 @@ export class BookingRoomsComponent implements OnInit {
 
   ngOnInit() {
   }
-  toggleAsActiveRoom(detailCmp: Room) {
-    console.log('toggle: ',detailCmp);
+  toggleAsActiveRoom() {
+    console.log('toggle: ');
   }
 }

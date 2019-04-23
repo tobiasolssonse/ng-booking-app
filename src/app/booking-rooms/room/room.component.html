@@ -1,6 +1,6 @@
   <div 
     #singleRoom
-    (toggleAsActiveRoom)="toggleAsActiveRoom(singleRoom)"
+    (change)="toggleAsActiveRoom()"
     class="single-room">
       <img class="single-room-image" src="{{room.imagePath}}" />
       <h3>{{room.name}}</h3>
