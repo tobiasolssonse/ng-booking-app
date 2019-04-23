@@ -6,12 +6,13 @@ import {Room} from "./booking-rooms.model";
   styleUrls: ['./booking-rooms.component.css']
 })
 export class BookingRoomsComponent implements OnInit {
-  rooms = [
-    'Standard double',
-    'Standard twin',
-    'Superior',
-    'Deluxe'
+  rooms : Room[] = [
+    new Room('Standard double', 'lorem ispum', 'http://www.naasfabriker.se/wp-content/uploads/2014/06/Standardrum.jpg')
   ]
+  // 'Standard double',
+  // 'Standard twin',
+  // 'Superior',
+  // 'Deluxe'
   constructor() { }
 
   ngOnInit() {
