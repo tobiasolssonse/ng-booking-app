@@ -1,4 +1,9 @@
 <div class="col-xl-12">
   <h2>Select room</h2>
-    <room></room>
+  <div class="rooms">
+      <room 
+      [room]="room" 
+      *ngFor="let room of rooms">
+    </room>
+  </div>
 </div>   

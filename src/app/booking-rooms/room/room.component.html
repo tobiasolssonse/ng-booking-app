@@ -1,12 +1,9 @@
-<div class="rooms">
-    <div 
+  <div 
     (click)="onSetActiveRoom($event)"
-    class="single-room" 
-    *ngFor="let room of rooms" >
+    class="single-room">
       <img class="single-room-image" src="{{room.imagePath}}" />
       <h3>{{room.name}}</h3>
       <p>{{room.description}}</p>
   </div>
-</div>
    
   
