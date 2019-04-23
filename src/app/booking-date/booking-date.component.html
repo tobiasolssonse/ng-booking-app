@@ -5,8 +5,8 @@
           class="form-control" 
           id="checkin" 
           name="checkin"
+          [min]="minDate"
           (input)= "onUpdateCheckInDate($event)"
-          [(ngModel)]="todaysDate" 
           required>
       </div>
  
@@ -16,10 +16,10 @@
           class="form-control" 
           id="checkout"
           name="checkout"
-          (input)= "onUpdateCheckInDate($event)"
+          [min]="checkOutMinDate"
+          (input)= "onUpdateCheckOutDate($event)"
           required>
       </div>     
     </div>
     <p *ngIf="checkInDate">Check in:{{checkInDate}}</p>
-    <p *ngIf="checkOutDate">Check out: {{checkOutDate}}</p>
-    <p>Date = {{ today | date : "'today is ' MMMM d, y" }}</p>
+    <p *ngIf="checkOutDate">Check out:{{checkOutDate}}</p>
