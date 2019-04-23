@@ -25,16 +25,13 @@ export class BookingDateComponent implements OnInit {
     // update checkOutMinDate
     this.checkOutMinDate = moment(this.checkInDate).add({days: 1}).format(this.dateFormat);
     if(moment(this.checkOutDate) < moment(this.checkOutMinDate)){
-      console.log('change mindate',this.checkOutMinDate);
       this.checkOutDate = this.checkOutMinDate;
     }
-    console.log(this.getNumberOfNights(this.checkInDate,this.checkOutDate));
   }
 
   onUpdateCheckOutDate(event: Event) {
     this.checkOutDate = ( event.target as HTMLInputElement).value;
     this.NumberOfNights = (this.getNumberOfNights(this.checkInDate,this.checkOutDate));
-    console.log(this.getNumberOfNights(this.checkInDate,this.checkOutDate));
   }
 
   private getNumberOfNights(inDate: string, outDate: string){
