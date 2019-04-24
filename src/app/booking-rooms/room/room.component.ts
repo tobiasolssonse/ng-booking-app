@@ -6,17 +6,16 @@ import { Room } from '../room.model';
   styleUrls: ['./room.component.css']
 })
 export class RoomComponent implements OnInit {
-  @Input('room') room: Room;
-  @Input('isSelected') isSelected: boolean;
+  @Input() room: Room;
+  @Input() isSelected: boolean;
   @Output() change = new EventEmitter<Room>();
-  activeRoom: boolean = false;
+  activeRoom = false;
   constructor() { }
 
   ngOnInit() {
   }
   toggleAsActiveRoom(eventArgs: Room) {
     this.room.isSelected = !eventArgs.isSelected;
-    console.log('ROOM.COMPONENT: clicked', eventArgs);
     this.activeRoom = this.room.isSelected;
     this.change.emit({
       name : eventArgs.name,

@@ -35,7 +35,7 @@ export class BookingRoomsComponent implements OnInit {
       'http://www.naasfabriker.se/wp-content/uploads/2014/06/Deluxe-hornrum.jpg',
       false)
   ];
-  
+
   constructor() { }
   ngOnInit() {
 
