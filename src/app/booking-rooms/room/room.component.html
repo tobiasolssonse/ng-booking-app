@@ -1,10 +1,7 @@
   <div 
     #singleRoom
-    (change)="toggleAsActiveRoom()"
+    (click)="toggleAsActiveRoom()"
+    [ngClass]="status ? 'active' : ''"
     class="single-room">
-      <img class="single-room-image" src="{{room.imagePath}}" />
-      <h3>{{room.name}}</h3>
-      <p>{{room.description}}</p>
+      <span class="single-room__title">{{room.name}}</span>
   </div>
-   
-  

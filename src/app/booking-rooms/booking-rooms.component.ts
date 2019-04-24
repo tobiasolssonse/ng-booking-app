@@ -4,7 +4,7 @@ import {Room} from "./room.model";
   selector: 'booking-rooms',
   templateUrl: './booking-rooms.component.html',
   styleUrls: ['./booking-rooms.component.css']
-})
+}) 
 export class BookingRoomsComponent implements OnInit {
    rooms : Room[] = [
     new Room(
@@ -33,10 +33,10 @@ export class BookingRoomsComponent implements OnInit {
   ]
  
   constructor() { }
-
   ngOnInit() {
+    console.log("booking-rooms-comp");
   }
-  toggleAsActiveRoom() {
-    console.log('toggle: ');
+  onRoomToggle() {
+    console.log('BOOKING-ROOMS.COMPONENT: onRoomToggle()');
   }
 }

@@ -8,13 +8,14 @@ import { Room } from '../room.model';
 export class RoomComponent implements OnInit {
   @Input('room') room: Room;
   @Output() change = new EventEmitter<Room>();
-
+  status : boolean;
   constructor() { }
 
   ngOnInit() {
   }
-  onClick(){
-    console.log('clicked');
+  toggleAsActiveRoom(){
+    console.log('ROOM.COMPONENT: clicked');
+    this.status = !this.status;
     this.change.emit();
   }
 }

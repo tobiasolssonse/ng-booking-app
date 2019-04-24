@@ -5,6 +5,7 @@
 }
 .single-room{
     cursor: pointer;
+    padding: 10px;
 }
 img.single-room-image{
     width: 100%;
@@ -16,4 +17,7 @@ img.single-room-image{
 img.single-room-image{
     width: 100%;
     height: auto;
+}
+.active{
+    background: #999;
 }
