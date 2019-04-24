@@ -3,7 +3,7 @@
   <div class="rooms">
       <app-room (change)="onRoomToggle($event)"
       [room]="room" 
-      *ngFor="let room of rooms">
+      *ngFor="let room of rooms; let i = index;">
     </app-room>
   </div>
 </div>   
