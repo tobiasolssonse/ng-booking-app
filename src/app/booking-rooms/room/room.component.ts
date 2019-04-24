@@ -17,9 +17,9 @@ export class RoomComponent implements OnInit {
     console.log('ROOM.COMPONENT: clicked');
     this.status = !this.status;
     this.change.emit({
-      'name' : 'testnamn',
-      'description' : 'test desc',
-      'imagePath' : 'fake imagepath',
+      name : 'testnamn',
+      description : 'test desc',
+      imagePath : 'fake imagepath',
     });
   }
 }
