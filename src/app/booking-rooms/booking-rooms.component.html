@@ -3,7 +3,9 @@
   <div class="rooms">
       <app-room (change)="onRoomToggle($event)"
       [room]="room" 
-      *ngFor="let room of rooms; let i = index;">
+      (click)="onSelect(room)"
+      [selectedRoom]="room === selectedRoom"
+      *ngFor="let room of rooms">
     </app-room>
   </div>
 </div>   

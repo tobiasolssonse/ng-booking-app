@@ -7,21 +7,20 @@ import { Room } from '../room.model';
 })
 export class RoomComponent implements OnInit {
   @Input() room: Room;
-  @Input() isSelected: boolean;
   @Output() change = new EventEmitter<Room>();
-  activeRoom = false;
+  @Input() selectedRoom: Room;
+
   constructor() { }
 
   ngOnInit() {
   }
   toggleAsActiveRoom(eventArgs: Room) {
-    this.room.isSelected = !eventArgs.isSelected;
-    this.activeRoom = this.room.isSelected;
+    // this.activeRoom = this.room.isSelected;
+    console.log(this.selectedRoom);
     this.change.emit({
       name : eventArgs.name,
       description : eventArgs.description,
-      imagePath : eventArgs.imagePath,
-      isSelected :  this.activeRoom,
+      imagePath : eventArgs.imagePath
     });
   }
 }
