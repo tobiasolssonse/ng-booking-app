@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BookingDateComponent } from './booking-date/booking-date.component';
 import { BookingRoomsComponent } from './booking-rooms/booking-rooms.component';
 import { RoomComponent } from './booking-rooms/room/room.component';
+import { BookingRoomsService } from './booking-rooms/booking-rooms.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { RoomComponent } from './booking-rooms/room/room.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    BookingRoomsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Room } from '../room.model';
+import { BookingRoomsService } from '../booking-rooms.service';
 @Component({
   selector: 'app-room',
   templateUrl: './room.component.html',
@@ -7,20 +8,20 @@ import { Room } from '../room.model';
 })
 export class RoomComponent implements OnInit {
   @Input() room: Room;
-  @Output() change = new EventEmitter<Room>();
   @Input() selectedRoom: Room;
 
-  constructor() { }
+  constructor(private bookingRoomsService: BookingRoomsService) { }
 
   ngOnInit() {
   }
+  onSelected(){
+    this.bookingRoomsService.selectedRoom.emit(this.room);
+  }
   toggleAsActiveRoom(eventArgs: Room) {
-    // this.activeRoom = this.room.isSelected;
-    console.log(this.selectedRoom);
-    this.change.emit({
-      name : eventArgs.name,
-      description : eventArgs.description,
-      imagePath : eventArgs.imagePath
-    });
+    // this.change.emit({
+    //   name : eventArgs.name,
+    //   description : eventArgs.description,
+    //   imagePath : eventArgs.imagePath
+    // });
   }
 }

@@ -2,8 +2,7 @@
   <h2>Select room</h2>
   <div class="rooms">
       <app-room (change)="onRoomToggle($event)"
-      [room]="room" 
-      (click)="onSelect(room)"
+      [room]="room"
       [selectedRoom]="room === selectedRoom"
       *ngFor="let room of rooms">
     </app-room>
