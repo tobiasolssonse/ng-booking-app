@@ -1,23 +1,8 @@
-.rooms{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 20px;
-}
 .single-room{
     cursor: pointer;
     padding: 10px;
 }
-img.single-room-image{
-    width: 100%;
-    height: auto;
-}
-.single-room{
-    cursor: pointer;
-}
-img.single-room-image{
-    width: 100%;
-    height: auto;
-}
 .active, .selected{
-    background: #999;
+    background: #000;
+    color: #FFF;
 }

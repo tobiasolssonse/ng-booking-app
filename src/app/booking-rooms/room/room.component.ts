@@ -14,14 +14,8 @@ export class RoomComponent implements OnInit {
 
   ngOnInit() {
   }
-  onSelected(){
+  onSelected() {
     this.bookingRoomsService.selectedRoom.emit(this.room);
   }
-  toggleAsActiveRoom(eventArgs: Room) {
-    // this.change.emit({
-    //   name : eventArgs.name,
-    //   description : eventArgs.description,
-    //   imagePath : eventArgs.imagePath
-    // });
-  }
+
 }

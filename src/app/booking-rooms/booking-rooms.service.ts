@@ -2,7 +2,7 @@ import { EventEmitter } from '@angular/core';
 
 import {Room} from './room.model';
 
-export class BookingRoomsService{
+export class BookingRoomsService {
     private ROOMS: Room[] = [
         new Room(
             `Standard double`,
@@ -31,7 +31,7 @@ export class BookingRoomsService{
 
     selectedRoom = new EventEmitter<Room>();
 
-    getRooms(){
+    getRooms() {
         return this.ROOMS.slice();
     }
 }
