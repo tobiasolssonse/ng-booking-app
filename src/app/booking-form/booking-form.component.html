@@ -1,14 +1,23 @@
 <div class="col-md-12">
   <h2>Enter your details</h2>
-<form>
+<form [formGroup]= 'bookingForm' (click) = "onSubmit()">
   <div class="form-group">
-    <label  for="name">Name</label>
-    <input #name type="email" class="form-control" id="name" placeholder="Enter your name">
-    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+    <label for="name">Name</label>
+    <input 
+      type="email" 
+      class="form-control" 
+      formControlName = "name"
+      id="name" 
+      placeholder="Enter your name">
   </div>
   <div class="form-group">
     <label for="email">Email</label>
-    <input #email type="email" class="form-control" id="email" placeholder="Enter your email">
+    <input 
+    type="email" 
+    class="form-control"
+    id="email" 
+    formControlName = "email"
+    placeholder="Enter your email">
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
