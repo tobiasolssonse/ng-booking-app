@@ -19,5 +19,16 @@
           [ngModel]= "checkOutDate"
           (input)= "onUpdateCheckOutDate($event)"
           required>
-      </div>     
+      </div>    
+      <mat-form-field>
+        <input  [min]="minDate" matInput [matDatepicker]="checkindate" placeholder="Check in date" [formControl]="date">
+        <mat-datepicker-toggle matSuffix [for]="checkindate"></mat-datepicker-toggle>
+        <mat-datepicker #checkindate></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <input [min]="checkOutMinDate" matInput [matDatepicker]="checkoutdate" placeholder="Check out date" [formControl]="date">
+        <mat-datepicker-toggle matSuffix [for]="checkoutdate"></mat-datepicker-toggle>
+        <mat-datepicker #checkoutdate></mat-datepicker>
+      </mat-form-field>
+       
 </div>
