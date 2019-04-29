@@ -6,6 +6,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, SatDatepickerModule } from 'saturn-datepicker'
+import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter'
 
 import { AppComponent } from './app.component';
 import { BookingDateComponent } from './booking-date/booking-date.component';
@@ -30,10 +32,13 @@ import { BookingFormComponent } from './booking-form/booking-form.component';
     MatDatepickerModule,
     MatMomentDateModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    SatDatepickerModule,
   ],
   providers: [
-    BookingRoomsService
+    BookingRoomsService,
+    {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
+    {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
   ],
   bootstrap: [AppComponent]
 })

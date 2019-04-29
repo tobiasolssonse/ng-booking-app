@@ -21,6 +21,14 @@
           required>
       </div>     -->
       <mat-form-field>
+        <input matInput
+            placeholder="Choose dates"
+            [satDatepicker]="picker"
+            [value]="date">
+        <sat-datepicker #picker [rangeMode]="true"></sat-datepicker>
+        <sat-datepicker-toggle matSuffix [for]="picker"></sat-datepicker-toggle>
+      </mat-form-field>
+      <!-- <mat-form-field>
         <input (dateChange)="onUpdateCheckInDate($event)" 
         [min]="minDate" 
         matInput 
@@ -40,5 +48,5 @@
         <mat-datepicker-toggle matSuffix [for]="checkoutdate"></mat-datepicker-toggle>
         <mat-datepicker #checkoutdate></mat-datepicker>
       </mat-form-field>
-       
+        -->
 </div>
