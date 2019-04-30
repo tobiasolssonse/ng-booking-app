@@ -2,12 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
-// import * as moment from 'moment';
 import * as _moment from 'moment';
-// tslint:disable-next-line:no-duplicate-imports
-import {default as _rollupMoment} from 'moment';
-
-const moment = _rollupMoment || _moment;
+// import {default as _rollupMoment} from 'moment';
+const moment = _moment;
+// const moment = _rollupMoment || _moment;
 @Component({
   selector: 'app-booking-date',
   templateUrl: './booking-date.component.html',
