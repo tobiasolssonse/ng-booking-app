@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { DateTime } from 'luxon';
 
 import { Room } from '../shared/room.model';
 import { Booking } from '../shared/booking.model';
@@ -36,14 +35,14 @@ export class BookingRoomsService {
     outDate = new Date();
     booking = new Booking(null, this.inDate , this.outDate, null, null);
 
-    getRooms(){
+    getRooms() {
         return this.ROOMS.slice();
     }
-    getBooking(){
+    getBooking() {
       return this.booking;
     }
-    updateBooking(book){
-      if (book.room){
+    updateBooking(book) {
+      if (book.room) {
         this.booking.room = book.room;
       }
       console.log(this.booking);
