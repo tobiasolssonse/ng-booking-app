@@ -15,7 +15,7 @@ import { AppComponent } from './app.component';
 import { BookingDateComponent } from './booking-date/booking-date.component';
 import { BookingRoomsComponent } from './booking-rooms/booking-rooms.component';
 import { RoomComponent } from './booking-rooms/room/room.component';
-import { BookingRoomsService } from './booking-rooms/booking-rooms.service';
+import { BookingRoomsService } from './shared/booking-rooms.service';
 import { BookingFormComponent } from './booking-form/booking-form.component';
 
 @NgModule({

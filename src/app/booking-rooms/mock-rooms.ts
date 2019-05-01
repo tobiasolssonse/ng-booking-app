@@ -1,4 +1,4 @@
-import { Room } from './room.model';
+import { Room } from '../shared/room.model';
 
 export const ROOMS: Room[] = [
     new Room(

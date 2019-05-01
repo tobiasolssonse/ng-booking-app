@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatOptionSelectionChange} from '@angular/material';
-import { Room } from './room.model';
-import { Booking } from '../shared/booking.model';
 
-import { BookingRoomsService } from './booking-rooms.service';
+import { Room } from '../shared/room.model';
+import { Booking } from '../shared/booking.model';
+import { BookingRoomsService } from '../shared/booking-rooms.service';
+
 @Component({
   selector: 'app-booking-rooms',
   templateUrl: './booking-rooms.component.html',
@@ -21,19 +22,10 @@ export class BookingRoomsComponent implements OnInit {
     this.rooms = this.bookingRoomsService.getRooms();
     this.booking = this.bookingRoomsService.getBooking();
     console.log(this.booking);
-    // this.bookingRoomsService.selectedRoom
-    // .subscribe(
-    //   (room: Room) => {
-    //     if ( this.selectedRoom !== room){
-    //       this.selectedRoom = room;
-    //       console.log(this.selectedRoom);
-    //     }
-    //   }
-    // );
 
   }
-  onChangeRoom(event: MatOptionSelectionChange, booking: Booking ){
-    console.log(event);
-    this.bookingRoomsService.updateBooking(booking);
+  onChangeRoom(event: MatOptionSelectionChange) {
+    // console.log(event);
+    this.bookingRoomsService.updateBooking({ room : event} );
   }
 }

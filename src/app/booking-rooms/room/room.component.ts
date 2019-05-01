@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Room } from '../room.model';
-import { BookingRoomsService } from '../booking-rooms.service';
+import { Room } from '../../shared/room.model';
+import { BookingRoomsService } from '../../shared/booking-rooms.service';
 @Component({
   selector: 'app-room',
   templateUrl: './room.component.html',
@@ -14,8 +14,8 @@ export class RoomComponent implements OnInit {
 
   ngOnInit() {
   }
-  onSelected() {
-    this.bookingRoomsService.selectedRoom.emit(this.room);
-  }
+  // onSelected() {
+  //   this.bookingRoomsService.selectedRoom.emit(this.room);
+  // }
 
 }

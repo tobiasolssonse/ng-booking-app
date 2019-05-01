@@ -1,7 +1,9 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { DateTime } from 'luxon';
 
-import { Room } from './room.model';
+import { Room } from '../shared/room.model';
 import { Booking } from '../shared/booking.model';
+
 @Injectable()
 export class BookingRoomsService {
     private ROOMS: Room[] = [
@@ -29,13 +31,11 @@ export class BookingRoomsService {
         `Våra deluxe hörnrum har vacker rymd och är personligt inredda. Rummen är på hela 45 kvm`,
         'http://www.naasfabriker.se/wp-content/uploads/2014/06/Deluxe-hornrum.jpg')
     ];
-    booking = new Booking(null, null, null, null, null);
-    // booking = [{
-    //   room : 'hej', checkIndate : null, checkOutdate : null,
-    // }];
-    selectedRoom = new EventEmitter<Room>();
-    // currentBooking = new EventEmitter<Booking>();
-    
+
+    inDate = new Date();
+    outDate = new Date();
+    booking = new Booking(null, this.inDate , this.outDate, null, null);
+
     getRooms(){
         return this.ROOMS.slice();
     }
@@ -43,7 +43,14 @@ export class BookingRoomsService {
       return this.booking;
     }
     updateBooking(book){
-      this.booking.room = book;
+      if (book.room){
+        this.booking.room = book.room;
+      }
       console.log(this.booking);
+    }
+     getNumberOfNights(inDate: string, outDate: string) {
+      // const a = moment(outDate); import moment
+      // const b = moment(inDate);
+      // return a.diff(b, 'days');
     }
 }
