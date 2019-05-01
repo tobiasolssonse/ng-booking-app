@@ -1,10 +1,14 @@
 <div class="col-xl-12">
-  <h2>Select room</h2>
   <div class="rooms">
-      <app-room (change)="onRoomToggle($event)"
-      [room]="room"
-      [selectedRoom]="room === selectedRoom"
-      *ngFor="let room of rooms">
-    </app-room>
+      <mat-form-field>
+          <mat-label>Select room</mat-label>
+          <mat-select [(ngModel)]="selectedRoom"
+          (selectionChange)="onChangeRoom($event.value)"
+          >
+            <mat-option *ngFor="let room of rooms" [(value)]="room.name">
+                {{ room.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
   </div>
 </div>   

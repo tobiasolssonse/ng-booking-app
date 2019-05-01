@@ -1,24 +1,11 @@
 <div class="col-md-12">
-  <h2>Enter your details</h2>
 <form [formGroup]= 'bookingForm' (click) = "onSubmit()">
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input 
-      type="email" 
-      class="form-control" 
-      formControlName = "name"
-      id="name" 
-      placeholder="Enter your name">
-  </div>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input 
-    type="email" 
-    class="form-control"
-    id="email" 
-    formControlName = "email"
-    placeholder="Enter your email">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+    <mat-form-field >
+        <input matInput placeholder="Name" value="">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Email address" value="">
+    </mat-form-field>
+    <button mat-flat-button color="primary">Book room</button>
 </form>
 </div>

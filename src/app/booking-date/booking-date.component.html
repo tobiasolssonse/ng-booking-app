@@ -1,52 +1,9 @@
   <div class="col-md-12">
-    <h2>Select dates</h2>
-      <!-- <div class="form-group ">
-        <label for="checkin">Check in</label>
-        <input type="date" 
-          class="form-control" 
-          id="checkin" 
-          [ngModel]= "checkInDate"
-          [min]="minDate"
-          (input)= "onUpdateCheckInDate($event)"
-          required>
-      </div>
-      <div class="form-group">
-        <label for="checkout">Check out</label>
-        <input type="date" 
-          class="form-control" 
-          id="checkout"
-          [min]="checkOutMinDate"
-          [ngModel]= "checkOutDate"
-          (input)= "onUpdateCheckOutDate($event)"
-          required>
-      </div>     -->
       <mat-form-field>
         <input matInput
-            placeholder="Choose dates"
-            [satDatepicker]="picker"
-            [value]="date">
+            placeholder="Select dates"
+            [satDatepicker]="picker">
         <sat-datepicker #picker [rangeMode]="true"></sat-datepicker>
         <sat-datepicker-toggle matSuffix [for]="picker"></sat-datepicker-toggle>
       </mat-form-field>
-      <!-- <mat-form-field>
-        <input (dateChange)="onUpdateCheckInDate($event)" 
-        [min]="minDate" 
-        matInput 
-        [matDatepicker]="checkindate" 
-        placeholder="Check in date" 
-        [formControl]="indate">
-        <mat-datepicker-toggle matSuffix [for]="checkindate"></mat-datepicker-toggle>
-        <mat-datepicker #checkindate></mat-datepicker>
-      </mat-form-field>
-      <mat-form-field>
-        <input 
-        [min]="checkOutMinDate" 
-        matInput 
-        [matDatepicker]="checkoutdate" 
-        placeholder="Check out date" 
-        [formControl]="outdate">
-        <mat-datepicker-toggle matSuffix [for]="checkoutdate"></mat-datepicker-toggle>
-        <mat-datepicker #checkoutdate></mat-datepicker>
-      </mat-form-field>
-        -->
 </div>
