@@ -1,11 +1,31 @@
 <div class="col-md-12">
-<form [formGroup]= 'bookingForm' (click) = "onSubmit()">
-    <mat-form-field >
-        <input matInput placeholder="Name" value="">
-    </mat-form-field>
-    <mat-form-field>
-        <input matInput placeholder="Email address" value="">
-    </mat-form-field>
-    <button mat-flat-button color="primary">Book room</button>
+    <form [formGroup]="form">
+        <mat-form-field>
+            <input matInput
+            placeholder="Select dates"
+            [satDatepicker]="picker"
+            formControlName="date" 
+            >
+            <sat-datepicker #picker [rangeMode]="true"></sat-datepicker>
+            <sat-datepicker-toggle matSuffix [for]="picker"></sat-datepicker-toggle>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Select room</mat-label>
+            <mat-select [(ngModel)]="selectedRoom"
+            (selectionChange)="onChangeRoom( $event.value )"
+            >
+              <mat-option *ngFor="let room of rooms" [(value)]="room.name">
+                  {{ room.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        <mat-form-field >
+            <input matInput placeholder="Name" value="">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Email address" value="">
+        </mat-form-field>
+        <button mat-flat-button color="primary">Book room</button>
 </form>
+
 </div>

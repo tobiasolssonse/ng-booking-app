@@ -1,8 +1,0 @@
-.single-room{
-    cursor: pointer;
-    padding: 10px;
-}
-.active, .selected{
-    background: #000;
-    color: #FFF;
-}
