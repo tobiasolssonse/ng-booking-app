@@ -1,25 +1,23 @@
 <div class="col-md-12">
-    <form [formGroup]="form">
+    <form>
         <mat-form-field>
             <input matInput
             placeholder="Select dates"
             [satDatepicker]="picker"
-            formControlName="date" 
-            >
+            formControlName="date">
             <sat-datepicker #picker [rangeMode]="true"></sat-datepicker>
             <sat-datepicker-toggle matSuffix [for]="picker"></sat-datepicker-toggle>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Select room</mat-label>
             <mat-select [(ngModel)]="selectedRoom"
-            (selectionChange)="onChangeRoom( $event.value )"
-            >
+            (selectionChange)="onChangeRoom( $event.value )">
               <mat-option *ngFor="let room of rooms" [(value)]="room.name">
                   {{ room.name }}
               </mat-option>
             </mat-select>
           </mat-form-field>
-        <mat-form-field >
+        <mat-form-field>
             <input matInput placeholder="Name" value="">
         </mat-form-field>
         <mat-form-field>

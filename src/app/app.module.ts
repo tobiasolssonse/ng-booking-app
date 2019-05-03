@@ -12,16 +12,12 @@ import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, SatDatepickerModule } f
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
 
 import { AppComponent } from './app.component';
-import { BookingRoomsComponent } from './booking-rooms/booking-rooms.component';
-import { RoomComponent } from './booking-rooms/room/room.component';
 import { BookingRoomsService } from './shared/booking-rooms.service';
 import { BookingFormComponent } from './booking-form/booking-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BookingRoomsComponent,
-    RoomComponent,
     BookingFormComponent,
   ],
   imports: [

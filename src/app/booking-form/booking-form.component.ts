@@ -11,10 +11,10 @@ import { BookingRoomsService } from '../shared/booking-rooms.service';
   styleUrls: ['./booking-form.component.css']
 })
 export class BookingFormComponent implements OnInit {
+  form: FormGroup;
   rooms: Room[];
   selectedRoom: Room;
   booking: Booking;
-  form: FormGroup;
   constructor(private bookingRoomsService: BookingRoomsService, fb: FormBuilder) {
     this.form = fb.group({
       date: [
@@ -25,18 +25,17 @@ export class BookingFormComponent implements OnInit {
       ]
     });
   }
-
   ngOnInit() {
-    this.form = new FormGroup({
-      name : new FormControl(null, Validators.required),
-      email : new FormControl(null, [Validators.required, Validators.email]),
-    });
     this.rooms = this.bookingRoomsService.getRooms();
     this.booking = this.bookingRoomsService.getBooking();
+    // this.form = new FormGroup({
+    //   name : new FormControl(null, Validators.required),
+    //   email : new FormControl(null, [Validators.required, Validators.email]),
+    //   date : new FormControl(null, Validators.required),
+    // });
     console.log(this.booking);
   }
   onChangeRoom(event: MatOptionSelectionChange) {
-    // console.log(event);
     this.bookingRoomsService.updateBooking({ room : event} );
   }
   onSubmit() {
