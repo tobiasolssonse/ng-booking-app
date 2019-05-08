@@ -1,28 +1,51 @@
-<div class="col-md-12" [formGroup]="bookingForm" >
-    <form>
-        <mat-form-field>
+<div class="col-md-12">
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <mat-form-field hideRequiredMarker>
             <input matInput
             placeholder="Select dates"
-            [satDatepicker]="picker"
-            formControlName="date">
+            ngModel
+            name="dates"
+            required
+            [satDatepicker]="picker">
             <sat-datepicker #picker [rangeMode]="true"></sat-datepicker>
             <sat-datepicker-toggle matSuffix [for]="picker"></sat-datepicker-toggle>
         </mat-form-field>
         <mat-form-field>
             <mat-label>Select room</mat-label>
-            <mat-select [(ngModel)]="selectedRoom"
-            (selectionChange)="onChangeRoom( $event.value )">
-              <mat-option *ngFor="let room of rooms" [(value)]="room.name">
+            <mat-select 
+            (selectionChange)="onChangeRoom( $event.value )"
+            ngModel
+            name="room"
+            [ngModel]="defaultRoom">
+              <mat-option *ngFor="let room of rooms" [(value)]="room.name" name="room">
                   {{ room.name }}
               </mat-option>
             </mat-select>
           </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Name" value="">
+        <mat-form-field
+        hideRequiredMarker>
+            <input 
+            matInput 
+            placeholder="Name"  
+            value=""
+            ngModel
+            name="name"
+            required>
+            <mat-error>Enter name</mat-error>
         </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Email address" value="">
+        <mat-form-field
+        hideRequiredMarker>
+            <input 
+            matInput 
+            placeholder="Email address" value=""
+            ngModel
+            name="email"
+            required
+            email
+            #email="ngModel">
+            <mat-error>Enter valid email adress</mat-error>
         </mat-form-field>
-        <button mat-flat-button color="primary">Book room</button>
-</form>
+        <button mat-flat-button color="primary" 
+        [disabled]="!f.valid">Book room</button>
+    </form>
 </div>
