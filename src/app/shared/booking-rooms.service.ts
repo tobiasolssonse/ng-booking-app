@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-
 import { Room } from '../shared/room.model';
 import { Booking } from '../shared/booking.model';
-
 @Injectable()
 export class BookingRoomsService {
     private ROOMS: Room[] = [
@@ -30,23 +28,31 @@ export class BookingRoomsService {
         `Våra deluxe hörnrum har vacker rymd och är personligt inredda. Rummen är på hela 45 kvm`,
         'http://www.naasfabriker.se/wp-content/uploads/2014/06/Deluxe-hornrum.jpg')
     ];
-
+    private BOOKINGS: Booking[] = [
+      {checkInDate: new Date() , checkOutDate: new Date(),
+        room: 'Standard Double', personName: 'Spindelmannen', personMail: 'spidey@tobiasolsson.se'},
+      {checkInDate: new Date() , checkOutDate: new Date(), room: 'Superior', personName: 'Robin', personMail: 'robin@tobiasolsson.se'},
+      {checkInDate: new Date() , checkOutDate: new Date(), room: 'Deluxe', personName: 'Hulken', personMail: 'hulken@tobiasolsson.se'},
+      {checkInDate: new Date() ,
+        checkOutDate: new Date(), room: 'Standard Double', personName: 'Tarzan', personMail: 'tarzam@tobiasolsson.se'},
+      {checkInDate: new Date() ,
+        checkOutDate: new Date(), room: 'Superior', personName: 'Läderlappen', personMail: 'batboy@tobiasolsson.se'},
+    ];
     inDate = new Date();
     outDate = new Date();
-    booking = new Booking(null, this.inDate , this.outDate, null, null);
-
+    booking: Booking;
     getRooms() {
         return this.ROOMS.slice();
+    }
+    getBookings() {
+      return this.BOOKINGS;
     }
     getBooking() {
       return this.booking;
     }
-    updateBooking(book) {
-      this.booking.room = book.room;
-      this.booking.checkInDate = book.dates.begin._i;
-      this.booking.checkOutDate = book.dates.end._i;
-      this.booking.personMail = book.email;
-      this.booking.personName = book.name;
+    updateBooking(book: Booking) {
+      this.BOOKINGS.push(book);
+      console.log(this.BOOKINGS);
     }
      getNumberOfNights(inDate: string, outDate: string) {
       // const a = moment(outDate); import moment
