@@ -22,9 +22,16 @@ export class BookingFormComponent implements OnInit {
     this.booking = this.bookingRoomsService.getBooking();
   }
   onChangeRoom(event: MatOptionSelectionChange) {
-    this.bookingRoomsService.updateBooking({ room: event} );
+    // this.bookingRoomsService.updateBooking({ room: event} );
   }
   onSubmit() {
-    console.log(this.bookingForm);
+
+    this.bookingRoomsService.updateBooking({
+      room: this.bookingForm.value.room,
+      dates: this.bookingForm.value.dates,
+      email: this.bookingForm.value.email,
+      name: this.bookingForm.value.name,
+    });
+    console.log(this.booking);
   }
 }

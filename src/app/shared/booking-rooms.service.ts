@@ -42,10 +42,11 @@ export class BookingRoomsService {
       return this.booking;
     }
     updateBooking(book) {
-      if (book.room) {
-        this.booking.room = book.room;
-      }
-      console.log(this.booking);
+      this.booking.room = book.room;
+      this.booking.checkInDate = book.dates.begin._i;
+      this.booking.checkOutDate = book.dates.end._i;
+      this.booking.personMail = book.email;
+      this.booking.personName = book.name;
     }
      getNumberOfNights(inDate: string, outDate: string) {
       // const a = moment(outDate); import moment
