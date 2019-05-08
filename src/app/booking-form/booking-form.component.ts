@@ -27,8 +27,8 @@ export class BookingFormComponent implements OnInit {
   onSubmit() {
     this.bookingRoomsService.updateBooking({
       room: this.bookingForm.value.room,
-      checkInDate: this.bookingForm.value.dates.begin._i,
-      checkOutDate: this.bookingForm.value.dates.end._i,
+      checkInDate: this.bookingForm.value.dates.begin._d,
+      checkOutDate: this.bookingForm.value.dates.end._d,
       personName: this.bookingForm.value.name,
       personMail: this.bookingForm.value.email,
     });
