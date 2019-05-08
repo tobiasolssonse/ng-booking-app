@@ -31,6 +31,6 @@ export class BookingFormComponent implements OnInit {
       email: this.bookingForm.value.email,
       name: this.bookingForm.value.name,
     });
-    // console.log(this.bookingRoomsService.getBooking());
+    console.log(this.booking = this.bookingRoomsService.getBooking());
   }
 }
