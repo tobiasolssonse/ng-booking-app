@@ -1,17 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {MatTableDataSource} from '@angular/material';
+import { Component, OnInit , ViewChild} from '@angular/core';
+import { MatTableDataSource, MatSort } from '@angular/material';
 import { BookingRoomsService } from '../shared/booking-rooms.service';
 import { Room } from '../shared/room.model';
 import { Booking } from '../shared/booking.model';
-
-
-// export interface Booking {
-//   checkInDate: string;
-//   checkOutDate: string;
-//   room: string;
-//   personName: string;
-//   personMail: string;
-// }
 
 const ELEMENT_DATA: Booking[] = [
   {checkInDate: new Date() , checkOutDate: new Date(),
@@ -31,13 +22,15 @@ const ELEMENT_DATA: Booking[] = [
 export class AdminBookingsComponent implements OnInit {
   booking: Booking;
   displayedColumns: string[] = ['checkInDate', 'checkOutDate', 'room', 'personName', 'personMail'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
-  constructor() { }
-
+  dataSource: MatTableDataSource<Booking>;
+  @ViewChild(MatSort) sort: MatSort;
+  constructor() {
+    this.dataSource = new MatTableDataSource(ELEMENT_DATA);
+  }
   ngOnInit() {
+    this.dataSource.sort = this.sort;
   }
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
 }
