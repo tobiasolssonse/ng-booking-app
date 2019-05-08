@@ -9,17 +9,20 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import {MatTableModule} from '@angular/material/table';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, SatDatepickerModule } from 'saturn-datepicker';
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
 //APP
 import { AppComponent } from './app.component';
 import { BookingRoomsService } from './shared/booking-rooms.service';
 import { BookingFormComponent } from './booking-form/booking-form.component';
+import { AdminBookingsComponent } from './admin-bookings/admin-bookings.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookingFormComponent,
+    AdminBookingsComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +34,7 @@ import { BookingFormComponent } from './booking-form/booking-form.component';
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
+    MatTableModule,
     SatDatepickerModule,
   ],
   providers: [

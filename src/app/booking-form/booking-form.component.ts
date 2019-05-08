@@ -25,13 +25,12 @@ export class BookingFormComponent implements OnInit {
     // this.bookingRoomsService.updateBooking({ room: event} );
   }
   onSubmit() {
-
     this.bookingRoomsService.updateBooking({
       room: this.bookingForm.value.room,
       dates: this.bookingForm.value.dates,
       email: this.bookingForm.value.email,
       name: this.bookingForm.value.name,
     });
-    console.log(this.booking);
+    // console.log(this.bookingRoomsService.getBooking());
   }
 }
