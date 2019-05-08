@@ -14,14 +14,12 @@ import { Booking } from '../shared/booking.model';
 // }
 
 const ELEMENT_DATA: Booking[] = [
-  {checkInDate: new Date() , checkOutDate: new Date(), room: 'Standard Double', personName: 'tobias', personMail: 'tobias@tobiasolsson.se'},
-  {checkInDate: new Date() , checkOutDate: new Date(), room: 'Superior', personName: 'tobias', personMail: 'tobias@tobiasolsson.se'},
-  {checkInDate: new Date() , checkOutDate: new Date(), room: 'Deluxe', personName: 'tobias', personMail: 'tobias@tobiasolsson.se'},
-  {checkInDate: new Date() , checkOutDate: new Date(), room: 'Standard Double', personName: 'tobias', personMail: 'tobias@tobiasolsson.se'},
-  {checkInDate: new Date() , checkOutDate: new Date(), room: 'Superior', personName: 'tobias', personMail: 'tobias@tobiasolsson.se'},
-  {checkInDate: new Date() , checkOutDate: new Date(), room: 'Standard Twin', personName: 'tobias', personMail: 'tobias@tobiasolsson.se'},
-  {checkInDate: new Date() , checkOutDate: new Date(), room: 'Standard Twin', personName: 'tobias', personMail: 'tobias@tobiasolsson.se'},
-  {checkInDate: new Date() , checkOutDate: new Date(), room: 'Standard Double', personName: 'tobias', personMail: 'tobias@tobiasolsson.se'},
+  {checkInDate: new Date() , checkOutDate: new Date(),
+    room: 'Standard Double', personName: 'Spindelmannen', personMail: 'spidey@tobiasolsson.se'},
+  {checkInDate: new Date() , checkOutDate: new Date(), room: 'Superior', personName: 'Robin', personMail: 'robin@tobiasolsson.se'},
+  {checkInDate: new Date() , checkOutDate: new Date(), room: 'Deluxe', personName: 'Hulken', personMail: 'hulken@tobiasolsson.se'},
+  {checkInDate: new Date() , checkOutDate: new Date(), room: 'Standard Double', personName: 'Tarzan', personMail: 'tarzam@tobiasolsson.se'},
+  {checkInDate: new Date() , checkOutDate: new Date(), room: 'Superior', personName: 'Läderlappen', personMail: 'batboy@tobiasolsson.se'},
 ];
 
 
