@@ -12,14 +12,19 @@ import { Booking } from '../shared/booking.model';
 })
 export class AdminBookingsComponent implements OnInit {
   booking: Booking;
+  coffeeOrders;
   displayedColumns: string[] = ['checkInDate', 'checkOutDate', 'room', 'personName', 'personMail'];
   dataSource: MatTableDataSource<Booking>;
   constructor(private bookingRoomsService: BookingRoomsService) {
     this.dataSource = new MatTableDataSource(bookingRoomsService.getBookings());
-
   }
   ngOnInit() {
+    this.getCoffeeOrders();
   }
+  getCoffeeOrders = () => this.bookingRoomsService
+  .getCoffeeOrders().subscribe(
+    res => (console.log(res))
+    )
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
