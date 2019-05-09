@@ -3,6 +3,8 @@ import { MatTableDataSource } from '@angular/material';
 import { BookingRoomsService } from '../shared/booking-rooms.service';
 import { Room } from '../shared/room.model';
 import { Booking } from '../shared/booking.model';
+import { Observable } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
 // import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -12,19 +14,16 @@ import { Booking } from '../shared/booking.model';
 })
 export class AdminBookingsComponent implements OnInit {
   booking: Booking;
-  coffeeOrders;
+  items: Observable<any[]>;
   displayedColumns: string[] = ['checkInDate', 'checkOutDate', 'room', 'personName', 'personMail'];
   dataSource: MatTableDataSource<Booking>;
-  constructor(private bookingRoomsService: BookingRoomsService) {
+  constructor(private bookingRoomsService: BookingRoomsService, db: AngularFirestore ) {
     this.dataSource = new MatTableDataSource(bookingRoomsService.getBookings());
+    this.items = db.collection('Bookings').valueChanges();
   }
   ngOnInit() {
-    this.getCoffeeOrders();
   }
-  getCoffeeOrders = () => this.bookingRoomsService
-  .getCoffeeOrders().subscribe(
-    res => (console.log(res))
-    )
+
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }

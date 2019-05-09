@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Room } from '../shared/room.model';
 import { Booking } from '../shared/booking.model';
 import { AngularFirestore } from '@angular/fire/firestore';
-
+import { Observable } from 'rxjs';
 @Injectable()
 export class BookingRoomsService {
     private ROOMS: Room[] = [
@@ -40,21 +40,15 @@ export class BookingRoomsService {
       {checkInDate: new Date() ,
         checkOutDate: new Date(), room: 'Superior', personName: 'Läderlappen', personMail: 'batboy@tobiasolsson.se'},
     ];
-    inDate = new Date();
-    outDate = new Date();
     booking: Booking;
-    constructor( private firestore: AngularFirestore ){
-
+    constructor(firestore: AngularFirestore ){
+     
     }
     getRooms() {
       return this.ROOMS.slice();
     }
     getBookings() {
-      // console.log(this.firestore.collection('Bookings').snapshotChanges());
       return this.BOOKINGS;
-    }
-    getCoffeeOrders() { 
-      return this.firestore.collection('Bookings').snapshotChanges();
     }
     getBooking() {
       return this.booking;
