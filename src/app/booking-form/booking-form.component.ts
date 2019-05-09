@@ -19,7 +19,7 @@ export class BookingFormComponent implements OnInit {
   }
   ngOnInit() {
     this.rooms = this.bookingRoomsService.getRooms();
-    this.booking = this.bookingRoomsService.getBooking();
+    // this.booking = this.bookingRoomsService.getBooking();
   }
   onChangeRoom(event: MatOptionSelectionChange) {
     // växla bild senare
@@ -32,6 +32,5 @@ export class BookingFormComponent implements OnInit {
       personName: this.bookingForm.value.name,
       personMail: this.bookingForm.value.email,
     });
-    // console.log(this.booking = this.bookingRoomsService.getBooking());
   }
 }

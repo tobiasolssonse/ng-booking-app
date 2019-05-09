@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Room } from '../shared/room.model';
 import { Booking } from '../shared/booking.model';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 @Injectable()
 export class BookingRoomsService {
     private ROOMS: Room[] = [
@@ -39,8 +40,8 @@ export class BookingRoomsService {
       {checkInDate: new Date() ,
         checkOutDate: new Date(), room: 'Superior', personName: 'Läderlappen', personMail: 'batboy@tobiasolsson.se'},
     ];
-    booking: Booking;
-    constructor(private firestore: AngularFirestore ) {
+    constructor(private afs: AngularFirestore ) {
+      console.log(afs.collection('Bookings').valueChanges());
     }
     getRooms() {
       return this.ROOMS.slice();
@@ -48,13 +49,9 @@ export class BookingRoomsService {
     getBookings() {
       return this.BOOKINGS;
     }
-    getBooking() {
-      return this.booking;
-    }
     updateBooking(book: Booking) {
-      this.BOOKINGS.push(book);
       return new Promise<any>((resolve, reject) =>{
-        this.firestore.collection('Bookings')
+        this.afs.collection('Bookings')
             .add(book)
             .then(res => {}, err => reject(err));
       });
