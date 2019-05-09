@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Room } from '../shared/room.model';
 import { Booking } from '../shared/booking.model';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+
 @Injectable()
 export class BookingRoomsService {
     private ROOMS: Room[] = [
@@ -42,7 +42,6 @@ export class BookingRoomsService {
     ];
     booking: Booking;
     constructor(firestore: AngularFirestore ){
-     
     }
     getRooms() {
       return this.ROOMS.slice();

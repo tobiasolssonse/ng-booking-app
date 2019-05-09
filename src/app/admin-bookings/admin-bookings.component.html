@@ -37,6 +37,10 @@
 </div>
 <ul>
   <li *ngFor="let item of items | async">
-    {{ item.PersonName }}
+    <span>{{ item.checkInDate }}</span><br>
+    <span>{{ item.checkOutDate }}</span><br>
+    <span>{{ item.personMail }}</span><br>
+    <span>{{ item.personName }}</span><br>
+    <span>{{ item.room }}</span><br>
   </li>
 </ul>
