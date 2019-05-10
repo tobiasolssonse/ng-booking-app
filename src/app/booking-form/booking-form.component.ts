@@ -23,7 +23,7 @@ export class BookingFormComponent implements OnInit {
       this.rooms = actionArray.map(item => {
         return {
           ...item.payload.doc.data()
-        };
+        } as Room;
       });
     });
     // this.booking = this.bookingRoomsService.getBooking();
