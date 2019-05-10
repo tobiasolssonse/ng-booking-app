@@ -18,7 +18,14 @@ export class BookingFormComponent implements OnInit {
   constructor(private bookingRoomsService: BookingRoomsService) {
   }
   ngOnInit() {
-    this.rooms = this.bookingRoomsService.getRooms();
+    // this.rooms = this.bookingRoomsService.getRooms();
+    this.bookingRoomsService.getRooms().subscribe(actionArray =>{
+      this.rooms = actionArray.map(item => {
+        return {
+          ...item.payload.doc.data()
+        };
+      });
+    });
     // this.booking = this.bookingRoomsService.getBooking();
   }
   onChangeRoom(event: MatOptionSelectionChange) {

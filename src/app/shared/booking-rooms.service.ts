@@ -31,20 +31,16 @@ export class BookingRoomsService {
         'http://www.naasfabriker.se/wp-content/uploads/2014/06/Deluxe-hornrum.jpg')
     ];
     private BOOKINGS: Booking[] = [
-      {checkInDate: new Date() , checkOutDate: new Date(),
-        room: 'Standard Double', personName: 'Spindelmannen', personMail: 'spidey@tobiasolsson.se'},
-      {checkInDate: new Date() , checkOutDate: new Date(), room: 'Superior', personName: 'Robin', personMail: 'robin@tobiasolsson.se'},
-      {checkInDate: new Date() , checkOutDate: new Date(), room: 'Deluxe', personName: 'Hulken', personMail: 'hulken@tobiasolsson.se'},
-      {checkInDate: new Date() ,
-        checkOutDate: new Date(), room: 'Standard Double', personName: 'Tarzan', personMail: 'tarzam@tobiasolsson.se'},
-      {checkInDate: new Date() ,
-        checkOutDate: new Date(), room: 'Superior', personName: 'Läderlappen', personMail: 'batboy@tobiasolsson.se'},
+      new Booking('Standard Double', 'Tue Feb 04 2019 12:05:22 GMT+0530 (IST)',
+       'Tue Feb 05 2019 12:05:22 GMT+0530 (IST)',  'Spindelmannen', 'spidey@tobiasolsson.se'),
     ];
     constructor(private afs: AngularFirestore ) {
       console.log(afs.collection('Bookings').valueChanges());
+      console.log(afs.collection('Rooms'));
     }
     getRooms() {
-      return this.ROOMS.slice();
+      return this.afs.collection('Rooms').snapshotChanges();
+      // return this.ROOMS.slice();
     }
     getBookings() {
       return this.BOOKINGS;
