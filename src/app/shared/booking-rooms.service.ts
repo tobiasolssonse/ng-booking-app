@@ -18,7 +18,8 @@ export class BookingRoomsService {
       // return this.ROOMS.slice();
     }
     getBookings() {
-      return this.BOOKINGS;
+      return this.afs.collection('Bookings').snapshotChanges();
+      // return this.BOOKINGS;
     }
     updateBooking(book: Booking) {
       return new Promise<any>((resolve, reject) =>{

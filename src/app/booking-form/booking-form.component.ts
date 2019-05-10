@@ -13,7 +13,7 @@ import { NgForm } from '@angular/forms';
 export class BookingFormComponent implements OnInit {
   @ViewChild('f') bookingForm: NgForm;
   rooms: Room[];
-  booking: Booking;
+  // booking: Booking;
   defaultRoom = 'Standard double';
   constructor(private bookingRoomsService: BookingRoomsService) {
   }

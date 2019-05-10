@@ -9,11 +9,19 @@ import { Booking } from '../shared/booking.model';
 })
 export class AdminBookingsComponent implements OnInit {
   displayedColumns: string[] = ['checkInDate', 'checkOutDate', 'room', 'personName', 'personMail'];
-  dataSource: MatTableDataSource<Booking>;
+  dataSource = new MatTableDataSource();
+  bookings: Booking[];
   constructor(private bookingRoomsService: BookingRoomsService ) {
-    this.dataSource = new MatTableDataSource(bookingRoomsService.getBookings());
+    // this.dataSource = new MatTableDataSource(bookingRoomsService.getBookings());
   }
   ngOnInit() {
+    this.bookingRoomsService.getBookings().subscribe(actionArray => {
+      this.bookings = actionArray.map(item => {
+        return {
+          ...item.payload.doc.data()
+        } as Booking;
+      });
+    });
   }
 
   applyFilter(filterValue: string) {
