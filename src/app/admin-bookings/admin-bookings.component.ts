@@ -4,7 +4,7 @@ import { Booking } from '../shared/booking.model';
 @Component({
   selector: 'app-admin-bookings',
   templateUrl: './admin-bookings.component.html',
-  styleUrls: ['./admin-bookings.component.css'],
+  styleUrls: ['./admin-bookings.component.scss'],
 })
 export class AdminBookingsComponent implements OnInit {
   bookings: Booking[];

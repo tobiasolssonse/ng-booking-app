@@ -1,0 +1,26 @@
+$sass: #000;
+.bookingform{
+    max-width: 375px;
+    padding: 20px;
+    background-color: $sass;
+    margin: 0 auto;
+    color: #FFF;
+    -webkit-filter: drop-shadow(0 0 7px rgba(#232323,1));      
+    filter: drop-shadow(0 0 7px rgba(#232323,1));
+    h2{
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 1em;
+        border-bottom: 1px solid #FFF;
+        font-weight: normal;
+    }
+}
+.mat-form-field-appearance-legacy .mat-form-field-label{
+ color:#515151;   
+}
+.mat-form-field{
+    display: block;
+    clear: both;
+    padding-bottom: 30px;
+    text-align: center;
+}
