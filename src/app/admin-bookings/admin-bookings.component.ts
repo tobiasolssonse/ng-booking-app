@@ -14,9 +14,15 @@ export class AdminBookingsComponent implements OnInit {
     this.bookingRoomsService.getBookings().subscribe(actionArray => {
       this.bookings = actionArray.map(item => {
         return {
+          id: item.payload.doc.id,
           ...item.payload.doc.data()
         } as Booking;
       });
     });
+  }
+  delete(id: string){
+    if (confirm('Delete booking?')) {
+      this.bookingRoomsService.removeBooking(id);
+    }
   }
 }

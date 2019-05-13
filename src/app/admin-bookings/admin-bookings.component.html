@@ -7,6 +7,7 @@
           <th>Room</th>
           <th>Name</th>
           <th>Email</th>
+          <th></th>
       </tr>
       <tr *ngFor="let item of bookings">
           <td>{{ item.checkInDate.seconds * 1000 | date:'yyyy-MM-dd'}}</td>
@@ -14,6 +15,7 @@
           <td>{{ item.room }}</td>
           <td>{{ item.personName }}</td>
           <td>{{ item.personMail }}</td>
+          <td><a (click)="delete(item.id)">D</a></td>
       </tr>
     </table>
 </div>
