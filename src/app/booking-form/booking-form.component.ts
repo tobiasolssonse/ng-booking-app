@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatOptionSelectionChange} from '@angular/material';
 import { BookingRoomsService } from '../shared/booking-rooms.service';
 import { Room } from '../shared/room.model';
-import { Booking } from '../shared/booking.model';
 import { NgForm } from '@angular/forms';
 import {MatDatepickerInputEvent} from '@angular/material/datepicker'
 @Component({
@@ -13,13 +12,15 @@ import {MatDatepickerInputEvent} from '@angular/material/datepicker'
 export class BookingFormComponent implements OnInit {
   @ViewChild('f') bookingForm: NgForm;
   rooms: Room[];
-  dateIn: any;
-  dateOut: any;
-  dates = new Date(2018, 7, 5);
+  today = new Date();
+  dateIn:any = new Date();
+  dateOut = new Date(this.dateIn - (-24*60*60*1000));
+
   defaultRoom = 'Standard double';
   constructor(private bookingRoomsService: BookingRoomsService) {
   }
   ngOnInit() {
+    console.log(this.dateOut);
     this.bookingRoomsService.getRooms().subscribe(actionArray =>{
       this.rooms = actionArray.map(item => {
         return {
@@ -34,13 +35,12 @@ export class BookingFormComponent implements OnInit {
   addEvent(event: MatDatepickerInputEvent<any>) {
     this.dateIn = event.value.begin._d;
     this.dateOut = event.value.end._d;
-  
   }
   onSubmit() {
     this.bookingRoomsService.updateBooking({
       room: this.bookingForm.value.room,
-      checkInDate: this.bookingForm.value.dates.begin._d,
-      checkOutDate: this.bookingForm.value.dates.end._d,
+      checkInDate: this.dateIn,
+      checkOutDate: this.dateOut,
       personName: this.bookingForm.value.name,
       personMail: this.bookingForm.value.email,
     });

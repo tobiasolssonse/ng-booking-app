@@ -1,13 +1,14 @@
 <div class="bookingform">
     <h2>Book a room</h2>
     <form (ngSubmit)="onSubmit()" #f="ngForm">
-        <mat-form-field hideRequiredMarker>
-            <input (dateChange)="addEvent($event)" matInput disabled
+        <mat-form-field style="display:none;">
+            <input (dateChange)="addEvent($event)" matInput 
             [ngModel]="dates"
             name="dates"
+            [min]="today"
             required
             [satDatepicker]="picker">
-            <sat-datepicker #picker [rangeMode]="true" disabled="false"></sat-datepicker>
+            <sat-datepicker #picker [rangeMode]="true"></sat-datepicker>
         </mat-form-field>
         <div class="event-datum" (click)="picker.open()">
             <div class="event_datum__from">

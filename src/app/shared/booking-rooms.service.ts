@@ -5,8 +5,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 @Injectable()
 export class BookingRoomsService {
     constructor(private afs: AngularFirestore ) {
-      console.log(afs.collection('Bookings').snapshotChanges());
-
+      // console.log(afs.collection('Bookings').snapshotChanges());
     }
     getRooms() {
       return this.afs.collection('Rooms').snapshotChanges();
