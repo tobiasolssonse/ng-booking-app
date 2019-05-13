@@ -62,4 +62,6 @@ $booking-app-theme: mat-light-theme($booking-app-primary, $booking-app-accent, $
     background-color: rgba(0, 0, 0, 1);
     color: #FFF;
 }
-
+.boldText{
+    font-family: 'TransatTextBold', Helvetica, Arial, Sans-Serif;
+}

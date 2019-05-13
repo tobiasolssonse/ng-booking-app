@@ -24,3 +24,33 @@ $sass: #000;
     padding-bottom: 30px;
     text-align: center;
 }
+
+//event
+.event{
+    &-datum{
+        display: block;
+        clear: both;
+        overflow: hidden;
+        margin: 0 auto;
+        padding: .78125em 1.5625em;
+        text-align: center;
+        
+    }
+    &_datum{
+        &__from, &__line, &__to{
+            float: left;
+        }
+        &__line{
+            font-size: 3em;
+            line-height: 1em;
+        }
+    }
+    &-day{
+        font-size: 3em;
+        font-family: 'TransatTextBold', Helvetica, Arial, Sans-Serif;
+    line-height: 1em;
+    }
+    &-month{
+        margin-top: -.5em;
+    }
+}

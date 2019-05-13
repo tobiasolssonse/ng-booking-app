@@ -2,20 +2,28 @@
     <h2>Book a room</h2>
     <form (ngSubmit)="onSubmit()" #f="ngForm">
         <mat-form-field hideRequiredMarker>
-            <input matInput
-            placeholder="Select dates"
-            ngModel
+            <input (dateChange)="addEvent($event)" matInput disabled
+            [ngModel]="dates"
             name="dates"
             required
             [satDatepicker]="picker">
-            <sat-datepicker #picker [rangeMode]="true"></sat-datepicker>
-            <sat-datepicker-toggle matSuffix [for]="picker"></sat-datepicker-toggle>
+            <sat-datepicker #picker [rangeMode]="true" disabled="false"></sat-datepicker>
         </mat-form-field>
+        <div class="event-datum" (click)="picker.open()">
+            <div class="event_datum__from">
+                <div class="event-day">{{dateIn | date:'d'}}</div>
+                <div class="event-month">{{dateIn | date:'MMM yyyy'}}</div>
+            </div>
+            <div class="event_datum__line">–</div>
+            <div class="event_datum__to">
+                <div class="event-day">{{dateOut | date:'d'}}</div>
+                <div class="event-month">{{dateOut | date:'MMM yyyy'}}</div>
+            </div>
+        </div>
         <mat-form-field>
             <mat-label>Select room</mat-label>
             <mat-select 
             (selectionChange)="onChangeRoom( $event.value )"
-            ngModel
             name="room"
             [ngModel]="defaultRoom">
               <mat-option *ngFor="let room of rooms" [(value)]="room.name" name="room">

@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatOptionSelectionChange} from '@angular/material';
-
 import { BookingRoomsService } from '../shared/booking-rooms.service';
 import { Room } from '../shared/room.model';
 import { Booking } from '../shared/booking.model';
 import { NgForm } from '@angular/forms';
+import {MatDatepickerInputEvent} from '@angular/material/datepicker'
 @Component({
   selector: 'app-booking-form',
   templateUrl: './booking-form.component.html',
@@ -13,12 +13,13 @@ import { NgForm } from '@angular/forms';
 export class BookingFormComponent implements OnInit {
   @ViewChild('f') bookingForm: NgForm;
   rooms: Room[];
-  // booking: Booking;
+  dateIn: any;
+  dateOut: any;
+  dates = new Date(2018, 7, 5);
   defaultRoom = 'Standard double';
   constructor(private bookingRoomsService: BookingRoomsService) {
   }
   ngOnInit() {
-    // this.rooms = this.bookingRoomsService.getRooms();
     this.bookingRoomsService.getRooms().subscribe(actionArray =>{
       this.rooms = actionArray.map(item => {
         return {
@@ -26,10 +27,14 @@ export class BookingFormComponent implements OnInit {
         } as Room;
       });
     });
-    // this.booking = this.bookingRoomsService.getBooking();
   }
   onChangeRoom(event: MatOptionSelectionChange) {
     // växla bild senare
+  }
+  addEvent(event: MatDatepickerInputEvent<any>) {
+    this.dateIn = event.value.begin._d;
+    this.dateOut = event.value.end._d;
+  
   }
   onSubmit() {
     this.bookingRoomsService.updateBooking({
