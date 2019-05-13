@@ -5,14 +5,30 @@ $sass: #000;
     background-color: $sass;
     margin: 0 auto;
     color: #FFF;
-    -webkit-filter: drop-shadow(0 0 7px rgba(#232323,1));      
-    filter: drop-shadow(0 0 7px rgba(#232323,1));
+    -webkit-filter: drop-shadow(0 0 7px rgba(#ccc,1));      
+    filter: drop-shadow(0 0 7px rgba(#ccc,1));
     h2{
         text-transform: uppercase;
         text-align: center;
         font-size: 1em;
         border-bottom: 1px solid #FFF;
         font-weight: normal;
+    }
+    button{
+        width: 100%;
+        text-align: center;
+        color: #000;
+        background-color: #FFF;
+        border-radius: 25px;
+        height: 50px;
+        font-size: 15px;
+        text-transform: uppercase;
+        border: none;
+        padding-top: 6px;
+        font-family: 'TransatTextBold', Helvetica, Arial, Sans-Serif;
+        &:disabled{
+            background-color: #232323;
+        }
     }
 }
 .mat-form-field-appearance-legacy .mat-form-field-label{

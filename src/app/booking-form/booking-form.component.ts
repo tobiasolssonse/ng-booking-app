@@ -20,7 +20,6 @@ export class BookingFormComponent implements OnInit {
   constructor(private bookingRoomsService: BookingRoomsService) {
   }
   ngOnInit() {
-    console.log(this.dateOut);
     this.bookingRoomsService.getRooms().subscribe(actionArray =>{
       this.rooms = actionArray.map(item => {
         return {

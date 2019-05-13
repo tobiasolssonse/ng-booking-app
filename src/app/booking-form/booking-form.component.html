@@ -6,7 +6,6 @@
             [ngModel]="dates"
             name="dates"
             [min]="today"
-            required
             [satDatepicker]="picker">
             <sat-datepicker #picker [rangeMode]="true"></sat-datepicker>
         </mat-form-field>
@@ -55,7 +54,6 @@
             #email="ngModel">
             <mat-error>Enter valid email adress</mat-error>
         </mat-form-field>
-        <button mat-flat-button color="primary" 
-        [disabled]="!f.valid">Book room</button>
+        <button [disabled]="!f.valid">Book room</button>
     </form>
 </div>

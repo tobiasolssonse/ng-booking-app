@@ -1,3 +1,20 @@
 table {
     width: 100%;
+    border-collapse: collapse;
+    th{
+      background-color: #000;
+      color: #fff;
+      padding: 20px;
+      text-align: left;
+      line-height: 1em;
+    }
+    td{
+      padding: 20px 10px;
+      line-height: 1em;     
+    }
+    tr{
+      &:nth-child(odd){
+        background: #fff;
+      }
+    }
   }
