@@ -4,13 +4,23 @@ table {
     th{
       background-color: #000;
       color: #fff;
-      padding: 20px;
+      padding: 20px 10px;
       text-align: left;
       line-height: 1em;
     }
+    .checkedin{
+      td{
+        color: #000; 
+      } 
+      .active{
+        color: green;
+      }
+    } 
     td{
       padding: 20px 10px;
-      line-height: 1em;     
+      line-height: 1em;
+      color: #999; 
+        
     }
     tr{
       &:nth-child(odd){
@@ -18,3 +28,4 @@ table {
       }
     }
   }
+  

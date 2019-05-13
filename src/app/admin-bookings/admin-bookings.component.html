@@ -13,7 +13,7 @@
       <tr *ngFor="let item of bookings" [className]="item.checkedin ? 'checkedin' : ''">
           <td><a class="checkin" (click)="checkin(item.id, item.checkedin)">
                 <ng-container *ngIf="item.checkedin; else second">
-                    <fa name="check-circle"></fa>
+                    <fa class="active" name="check-circle"></fa>
                 </ng-container>
                 <ng-template #second>
                     <fa name="check-circle"></fa>
