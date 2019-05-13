@@ -1,14 +1,17 @@
 <div>
   <h2>Bookings</h2>
+  <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
   <table>
       <tr>
-          <th></th>
+          <th><fa name="check-circle"></fa></th>
           <th>Check-in</th>
           <th>Check-out</th>
           <th>Room</th>
           <th>Name</th>
           <th>Email</th>
-          <th></th>
+          <th><fa name="trash"></fa></th>
       </tr>
       <tr *ngFor="let item of bookings" [className]="item.checkedin ? 'checkedin' : ''">
           <td><a class="checkin" (click)="checkin(item.id, item.checkedin)">
@@ -24,7 +27,9 @@
           <td>{{ item.room }}</td>
           <td>{{ item.personName }}</td>
           <td>{{ item.personMail }}</td>
-          <td><a class="delete" (click)="delete(item.id)"><fa name="trash"></fa></a>
+          <td> <ng-container *ngIf="!item.checkedin;">
+                <a class="delete" (click)="delete(item.id)"><fa name="trash"></fa></a>
+          </ng-container>
           </td>
       </tr>
     </table>

@@ -10,7 +10,7 @@ export class BookingRoomsService {
       return this.afs.collection('Rooms').snapshotChanges();
     }
     getBookings() {
-      return this.afs.collection('Bookings').snapshotChanges();
+      return this.afs.collection<Booking>('Bookings', ref => ref.orderBy('checkInDate')).snapshotChanges();
     }
     updateBooking(book: Booking) {
       return new Promise<any>((resolve, reject) => {

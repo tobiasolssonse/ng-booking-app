@@ -28,4 +28,8 @@ export class AdminBookingsComponent implements OnInit {
   checkin(id: string, checkedin: boolean){
     this.bookingRoomsService.checkinBooking(id, checkedin);
   }
+  applyFilter(filterValue: string) {
+    console.log(filterValue.trim().toLowerCase());
+    console.log(this.bookings);
+  }
 }

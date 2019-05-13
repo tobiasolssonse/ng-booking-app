@@ -44,4 +44,5 @@ export class BookingFormComponent implements OnInit {
       personMail: this.bookingForm.value.email,
     });
   }
+
 }

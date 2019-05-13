@@ -8,24 +8,40 @@ table {
       text-align: left;
       line-height: 1em;
     }
+   
+    td{
+      padding: 20px 10px;
+      line-height: 1em;
+      color: #555; 
+      background: #eee;
+    } 
+    tr{
+     
+      border-bottom: 1px solid #ccc;
+      &:nth-child(odd){
+        // background: #fff;
+      }
+    }
     .checkedin{
+    
       td{
         color: #000; 
+        background-color: #FFF;  
+              
       } 
       .active{
         color: green;
       }
     } 
-    td{
-      padding: 20px 10px;
-      line-height: 1em;
-      color: #999; 
-        
-    }
-    tr{
-      &:nth-child(odd){
-        background: #fff;
-      }
+  }
+  .delete{
+    cursor: pointer;
+    &:hover{
+      color: red;
     }
   }
+  .checkin{
+    cursor: pointer;
+  }
+ 
   
