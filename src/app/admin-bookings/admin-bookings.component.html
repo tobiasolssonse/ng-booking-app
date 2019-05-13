@@ -2,6 +2,7 @@
   <h2>Bookings</h2>
   <table>
       <tr>
+          <th></th>
           <th>Check-in</th>
           <th>Check-out</th>
           <th>Room</th>
@@ -9,13 +10,22 @@
           <th>Email</th>
           <th></th>
       </tr>
-      <tr *ngFor="let item of bookings">
+      <tr *ngFor="let item of bookings" [className]="item.checkedin ? 'checkedin' : ''">
+          <td><a class="checkin" (click)="checkin(item.id, item.checkedin)">
+                <ng-container *ngIf="item.checkedin; else second">
+                    <fa name="check-circle"></fa>
+                </ng-container>
+                <ng-template #second>
+                    <fa name="check-circle"></fa>
+                </ng-template> 
+            </a>
           <td>{{ item.checkInDate.seconds * 1000 | date:'yyyy-MM-dd'}}</td>
           <td>{{ item.checkOutDate.seconds * 1000 | date:'yyyy-MM-dd' }}</td>
           <td>{{ item.room }}</td>
           <td>{{ item.personName }}</td>
           <td>{{ item.personMail }}</td>
-          <td><a (click)="delete(item.id)">D</a></td>
+          <td><a class="delete" (click)="delete(item.id)"><fa name="trash"></fa></a>
+          </td>
       </tr>
     </table>
 </div>

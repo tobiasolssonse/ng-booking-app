@@ -25,4 +25,7 @@ export class AdminBookingsComponent implements OnInit {
       this.bookingRoomsService.removeBooking(id);
     }
   }
+  checkin(id: string, checkedin: boolean){
+    this.bookingRoomsService.checkinBooking(id, checkedin);
+  }
 }

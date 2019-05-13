@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
 // import { AngularFireStorageModule } from '@angular/fire/storage';
 // import { AngularFireAuthModule } from '@angular/fire/auth';
 // MATERIAL
@@ -40,6 +42,7 @@ export const firebaseConfig = {
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
+    AngularFontAwesomeModule,
     MatDatepickerModule,
     MatMomentDateModule,
     MatFormFieldModule,

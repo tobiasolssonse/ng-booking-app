@@ -13,7 +13,7 @@ export class BookingRoomsService {
       return this.afs.collection('Bookings').snapshotChanges();
     }
     updateBooking(book: Booking) {
-      return new Promise<any>((resolve, reject) =>{
+      return new Promise<any>((resolve, reject) => {
         this.afs.collection('Bookings')
             .add(book)
             .then(res => {}, err => reject(err));
@@ -22,5 +22,10 @@ export class BookingRoomsService {
     removeBooking(id: string) {
         this.afs.doc('Bookings/' + id).delete();
     }
+    checkinBooking(id: string, checkedin: boolean) {
+      checkedin = !checkedin;
+      this.afs.doc('Bookings/' + id).update({checkedin: checkedin});
+      console.log('checkin', id);
+  }
 
 }
