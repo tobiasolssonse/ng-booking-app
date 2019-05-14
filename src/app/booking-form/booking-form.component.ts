@@ -16,7 +16,7 @@ export class BookingFormComponent implements OnInit {
   dateIn: any = new Date();
   dateOut = new Date(this.dateIn - (-24 * 60 * 60 * 1000));
 
-  defaultRoom = 'Standard double';
+  activeRoom = 'Standard twin';
   constructor(private bookingRoomsService: BookingRoomsService) {
   }
   ngOnInit() {
@@ -28,8 +28,8 @@ export class BookingFormComponent implements OnInit {
       });
     });
   }
-  onChangeRoom(event: MatOptionSelectionChange) {
-    // växla bild senare
+  onChangeRoom(event: any) {
+    this.activeRoom = event;
   }
   addEvent(event: MatDatepickerInputEvent<any>) {
     this.dateIn = event.value.begin._d;

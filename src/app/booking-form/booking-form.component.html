@@ -1,5 +1,18 @@
+<div class="roomImg">
+        <div class="room__title">
+            <span class="room__title__inner">
+                {{activeRoom}}
+            </span>
+        </div>
+        <div class="roomImg__inner {{room.name.replace(' ','_') | lowercase}}" *ngFor="let room of rooms" >
+            <div [class.activeRoom]="room.name == [activeRoom]" class="roomImg__c">
+                <img src="{{room.imagePath}}" />
+            </div>
+        </div>
+    </div>
 <div class="bookingform">
     <h2>Book your room</h2>
+  
     <form (ngSubmit)="onSubmit()" #f="ngForm">
         <mat-form-field style="height: 0; overflow: hidden; padding:0">
             <input (dateChange)="addEvent($event)" matInput 
@@ -29,7 +42,7 @@
             <mat-select  
             (selectionChange)="onChangeRoom( $event.value )"
             name="room"
-            [ngModel]="defaultRoom">
+            [ngModel]="activeRoom">
               <mat-option *ngFor="let room of rooms" [(value)]="room.name" name="room">
                 {{ room.name }}
             </mat-option>

@@ -2,14 +2,14 @@ $sass: #000;
 $lightgray: #515151;
 $darkgray: #232323;
 $red: #E95858;
+
 .bookingform{
     max-width: 375px;
     padding: 20px;
     background-color: $sass;
     margin: 0 auto;
     color: #FFF;
-    -webkit-filter: drop-shadow(0 0 7px rgba(#ccc,1));      
-    filter: drop-shadow(0 0 7px rgba(#ccc,1));
+    box-sizing: border-box;
     h2{
         text-transform: uppercase;
         text-align: center;
@@ -36,6 +36,50 @@ $red: #E95858;
         &:disabled{
             background-color: #232323;
         }
+    }
+}
+.room__title{
+    position: absolute;
+    top: 0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background: rgba(0,0,0,.25);
+    &__inner{
+        text-transform: uppercase;
+        color: #FFF;
+        font-size: (50/16)*1em;
+        line-height: 1em;
+        font-family: 'TransatTextBold', Helvetica, Arial, Sans-Serif;
+        font-weight: 600;
+    }
+}
+.roomImg{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 375px;
+    height: 200px;
+    margin: 0 auto;
+    &__inner{
+        img{
+            width: 100%;
+            height: 200px;
+            display: block;
+            object-fit: cover;
+        }
+
+    }
+    &__c{
+        height: 0;
+        transition: height 0.5s ease;
+    }
+    .activeRoom{
+        height: 200px;
     }
 }
 //event
