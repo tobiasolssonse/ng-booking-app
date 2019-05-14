@@ -43,6 +43,8 @@ export class BookingFormComponent implements OnInit {
       personName: this.bookingForm.value.name,
       personMail: this.bookingForm.value.email,
     });
+    this.bookingForm.controls['name'].reset();
+    this.bookingForm.controls['email'].reset();
   }
 
 }

@@ -9,13 +9,14 @@
             [satDatepicker]="picker">
             <sat-datepicker #picker [rangeMode]="true"></sat-datepicker>
         </mat-form-field>
-        <div class="date_container">
+        <div class="date_container formel" >
+            <label>Select dates</label>
             <div class="event-datum" (click)="picker.open()">
                 <div class="event_datum__from">
                     <div class="event-day">{{dateIn | date:'d'}}</div>
                     <div class="event-month">{{dateIn | date:'MMM yyyy'}}</div>
                 </div>
-                <div class="event_datum__line">–</div>
+                <div class="event_datum__line"></div>
                 <div class="event_datum__to">
                     <div class="event-day">{{dateOut | date:'d'}}</div>
                     <div class="event-month">{{dateOut | date:'MMM yyyy'}}</div>
@@ -30,33 +31,40 @@
             name="room"
             [ngModel]="defaultRoom">
               <mat-option *ngFor="let room of rooms" [(value)]="room.name" name="room">
-                  {{ room.name }}
+                {{ room.name }}
             </mat-option>
         </mat-select>
         </mat-form-field>
-        <mat-form-field
-        hideRequiredMarker>
-            <input 
+
+        <div class="formel">
+            <label for="name">Name</label>
+            <input
             matInput 
-            placeholder="Name"  
+            placeholder="Enter your name"  
             value=""
             ngModel
             name="name"
-            required>
-            <mat-error>Enter name</mat-error>
-        </mat-form-field>
-        <mat-form-field
-        hideRequiredMarker>
-            <input 
+            required  
+            type="text">
+        </div>
+
+        <div class="formel">
+            <label for="email">Email adress</label>
+            <input
             matInput 
-            placeholder="Email address" value=""
+            placeholder="Enter your email"  
+            value=""
             ngModel
             name="email"
-            required
-            email
-            #email="ngModel">
-            <mat-error>Enter valid email adress</mat-error>
-        </mat-form-field>
+            required  
+            ngModel [email]="true"
+            type="email">
+        </div>
         <button [disabled]="!f.valid">Book room</button>
+        <ng-container *ngIf="f.valid;">
+            <span class="disclaimer">
+                    Quisque vestibulum in lacus maximus varius. Mauris a efficitur neque, ac ultricies ligula
+            </span>
+        </ng-container>
     </form>
 </div>

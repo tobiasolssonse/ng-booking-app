@@ -1,4 +1,7 @@
 $sass: #000;
+$lightgray: #515151;
+$darkgray: #232323;
+$red: #E95858;
 .bookingform{
     max-width: 375px;
     padding: 20px;
@@ -35,24 +38,12 @@ $sass: #000;
         }
     }
 }
-.mat-form-field-appearance-legacy .mat-form-field-label{
- color:#515151;   
-}
-.mat-select-value{
-    color: #FFF !important;
-}
-.mat-form-field{
-    display: block;
-    clear: both;
-    padding-bottom: 20px;
-    // text-align: center;
-}
-.mat-form-field-type-mat-select {
-    padding-bottom: 0;
-}
 //event
 .date_container{
     text-align: center;
+    label{
+        display: block;
+    }
 }
 .event{
     &-datum{
@@ -69,8 +60,11 @@ $sass: #000;
             float: left;
         }
         &__line{
-            font-size: 3em;
-            line-height: 1em;
+            width:20px;
+            height: 6px;
+            background-color: #FFF;
+            margin: 0 5px;
+            margin-top: 23px;
         }
     }
     &-day{
@@ -82,4 +76,39 @@ $sass: #000;
     &-month{
         margin-top: -.5em;
     }
+}
+
+.mat-form-field{
+    display: block;
+    clear: both;
+}
+.mat-form-field-type-mat-select {
+    padding-bottom: 0;
+}
+
+
+.formel{
+    text-align: center;
+    padding-bottom: 25px;
+    label{
+        color: $lightgray;
+    }
+    input{
+        font-size:20px;
+        &::placeholder{
+            color: $darkgray;
+        }
+    }
+    .ng-invalid{
+        color: $red;
+    
+    }
+}
+
+.disclaimer{
+    display: block;
+    text-align: center;
+    font-size: (12/16)*1em;
+    line-height: (15/12)*1em;
+    padding: 20px;
 }
