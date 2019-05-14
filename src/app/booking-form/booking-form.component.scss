@@ -12,7 +12,8 @@ $sass: #000;
         text-align: center;
         font-size: 1em;
         border-bottom: 1px solid #FFF;
-        font-weight: normal;
+        font-family: 'TransatTextBold', Helvetica, Arial, Sans-Serif;
+        font-weight: 600;
     }
     button{
         width: 100%;
@@ -24,8 +25,11 @@ $sass: #000;
         font-size: 15px;
         text-transform: uppercase;
         border: none;
-        padding-top: 6px;
+        // padding-top: 6px;
+        margin-top: 20px;
+        line-height: 15px;
         font-family: 'TransatTextBold', Helvetica, Arial, Sans-Serif;
+        font-weight: 600;
         &:disabled{
             background-color: #232323;
         }
@@ -34,17 +38,25 @@ $sass: #000;
 .mat-form-field-appearance-legacy .mat-form-field-label{
  color:#515151;   
 }
+.mat-select-value{
+    color: #FFF !important;
+}
 .mat-form-field{
     display: block;
     clear: both;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
+    // text-align: center;
+}
+.mat-form-field-type-mat-select {
+    padding-bottom: 0;
+}
+//event
+.date_container{
     text-align: center;
 }
-
-//event
 .event{
     &-datum{
-        display: block;
+        display: inline-block;
         clear: both;
         overflow: hidden;
         margin: 0 auto;
@@ -64,7 +76,8 @@ $sass: #000;
     &-day{
         font-size: 3em;
         font-family: 'TransatTextBold', Helvetica, Arial, Sans-Serif;
-    line-height: 1em;
+        line-height: 1em;
+        font-weight: 600;
     }
     &-month{
         margin-top: -.5em;

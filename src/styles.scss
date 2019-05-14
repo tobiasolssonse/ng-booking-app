@@ -14,7 +14,38 @@ body{
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat-core();
-
+$bv-brand: (
+    50 : #e0e0e0,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #000000,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+    contrast: (
+        50 : #ffffff,
+        100 : #ffffff,
+        200 : #ffffff,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #ffffff,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
@@ -22,10 +53,10 @@ $booking-app-primary: mat-palette($mat-gray);
 $booking-app-accent:  mat-palette($mat-gray, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$booking-app-warn:    mat-palette($mat-amber);
+$booking-app-warn:  mat-palette($mat-amber);
 
 // Create the theme object (a Sass map containing all of the palettes).
-$booking-app-theme: mat-light-theme($booking-app-primary, $booking-app-accent, $booking-app-warn);
+$booking-app-theme: mat-dark-theme($booking-app-primary, $booking-app-accent, $booking-app-warn);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component

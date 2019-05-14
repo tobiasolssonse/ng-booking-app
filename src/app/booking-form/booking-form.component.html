@@ -1,7 +1,7 @@
 <div class="bookingform">
-    <h2>Book a room</h2>
+    <h2>Book your room</h2>
     <form (ngSubmit)="onSubmit()" #f="ngForm">
-        <mat-form-field style="display:none;">
+        <mat-form-field style="height: 0; overflow: hidden; padding:0">
             <input (dateChange)="addEvent($event)" matInput 
             [ngModel]="dates"
             name="dates"
@@ -9,28 +9,31 @@
             [satDatepicker]="picker">
             <sat-datepicker #picker [rangeMode]="true"></sat-datepicker>
         </mat-form-field>
-        <div class="event-datum" (click)="picker.open()">
-            <div class="event_datum__from">
-                <div class="event-day">{{dateIn | date:'d'}}</div>
-                <div class="event-month">{{dateIn | date:'MMM yyyy'}}</div>
+        <div class="date_container">
+            <div class="event-datum" (click)="picker.open()">
+                <div class="event_datum__from">
+                    <div class="event-day">{{dateIn | date:'d'}}</div>
+                    <div class="event-month">{{dateIn | date:'MMM yyyy'}}</div>
+                </div>
+                <div class="event_datum__line">–</div>
+                <div class="event_datum__to">
+                    <div class="event-day">{{dateOut | date:'d'}}</div>
+                    <div class="event-month">{{dateOut | date:'MMM yyyy'}}</div>
+                </div>
             </div>
-            <div class="event_datum__line">–</div>
-            <div class="event_datum__to">
-                <div class="event-day">{{dateOut | date:'d'}}</div>
-                <div class="event-month">{{dateOut | date:'MMM yyyy'}}</div>
-            </div>
-        </div>
+        </div>      
+
         <mat-form-field>
             <mat-label>Select room</mat-label>
-            <mat-select 
+            <mat-select  
             (selectionChange)="onChangeRoom( $event.value )"
             name="room"
             [ngModel]="defaultRoom">
               <mat-option *ngFor="let room of rooms" [(value)]="room.name" name="room">
                   {{ room.name }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
+            </mat-option>
+        </mat-select>
+        </mat-form-field>
         <mat-form-field
         hideRequiredMarker>
             <input 
