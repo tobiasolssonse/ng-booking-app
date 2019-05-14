@@ -1,3 +1,4 @@
+<div class="container">
 <div class="roomImg">
         <div class="room__title">
             <span class="room__title__inner">
@@ -11,73 +12,77 @@
         </div>
     </div>
 <div class="bookingform">
-    <h2>Book your room</h2>
-  
-    <form (ngSubmit)="onSubmit()" #f="ngForm">
-        <mat-form-field style="height: 0; overflow: hidden; padding:0">
-            <input (dateChange)="addEvent($event)" matInput 
-            [ngModel]="dates"
-            name="dates"
-            [min]="today"
-            [satDatepicker]="picker">
-            <sat-datepicker #picker [rangeMode]="true"></sat-datepicker>
-        </mat-form-field>
-        <div class="date_container formel" >
-            <label>Select dates</label>
-            <div class="event-datum" (click)="picker.open()">
-                <div class="event_datum__from">
-                    <div class="event-day">{{dateIn | date:'d'}}</div>
-                    <div class="event-month">{{dateIn | date:'MMM yyyy'}}</div>
+   
+        <h2>Book your room</h2>
+
+        <form (ngSubmit)="onSubmit()" #f="ngForm">
+            <mat-form-field style="height: 0; overflow: hidden; padding:0">
+                <input (dateChange)="addEvent($event)" matInput 
+                [ngModel]="dates"
+                name="dates"
+                [min]="today"
+                [satDatepicker]="picker">
+                <sat-datepicker #picker [rangeMode]="true"></sat-datepicker>
+            </mat-form-field>
+            <div class="date_container formel" >
+                <label>Select dates</label>
+                <div class="event-datum" (click)="picker.open()">
+                    <div class="event_datum__from">
+                        <div class="event-day">{{dateIn | date:'d'}}</div>
+                        <div class="event-month">{{dateIn | date:'MMM yyyy'}}</div>
+                    </div>
+                    <div class="event_datum__line"></div>
+                    <div class="event_datum__to">
+                        <div class="event-day">{{dateOut | date:'d'}}</div>
+                        <div class="event-month">{{dateOut | date:'MMM yyyy'}}</div>
+                    </div>
                 </div>
-                <div class="event_datum__line"></div>
-                <div class="event_datum__to">
-                    <div class="event-day">{{dateOut | date:'d'}}</div>
-                    <div class="event-month">{{dateOut | date:'MMM yyyy'}}</div>
-                </div>
+            </div>      
+    
+            <mat-form-field>
+                <mat-label>Select room</mat-label>
+                <mat-select  
+                (selectionChange)="onChangeRoom( $event.value )"
+                name="room"
+                [(ngModel)]="activeRoom"
+                >
+                    <mat-option *ngFor="let room of rooms" [(value)]="room.name"  name="room">
+                    {{ room.name }}
+                </mat-option>
+            </mat-select>
+            </mat-form-field>
+    
+            <div class="formel">
+                <label for="name">Name</label>
+                <input
+                matInput 
+                placeholder="Enter your name"  
+                value=""
+                ngModel
+                name="name"
+                required  
+                type="text">
             </div>
-        </div>      
+    
+            <div class="formel">
+                <label for="email">Email adress</label>
+                <input
+                matInput 
+                placeholder="Enter your email"  
+                value=""
+                ngModel
+                name="email"
+                required  
+                ngModel [email]="true"
+                type="email">
+            </div>
+            <button [disabled]="!f.valid">Book room</button>
+            <ng-container *ngIf="f.valid;">
+                <span class="disclaimer">
+                        Quisque vestibulum in lacus maximus varius. Mauris a efficitur neque, ac ultricies ligula
+                </span>
+            </ng-container>
+        </form>
 
-        <mat-form-field>
-            <mat-label>Select room</mat-label>
-            <mat-select  
-            (selectionChange)="onChangeRoom( $event.value )"
-            name="room"
-            [ngModel]="activeRoom">
-              <mat-option *ngFor="let room of rooms" [(value)]="room.name" name="room">
-                {{ room.name }}
-            </mat-option>
-        </mat-select>
-        </mat-form-field>
-
-        <div class="formel">
-            <label for="name">Name</label>
-            <input
-            matInput 
-            placeholder="Enter your name"  
-            value=""
-            ngModel
-            name="name"
-            required  
-            type="text">
-        </div>
-
-        <div class="formel">
-            <label for="email">Email adress</label>
-            <input
-            matInput 
-            placeholder="Enter your email"  
-            value=""
-            ngModel
-            name="email"
-            required  
-            ngModel [email]="true"
-            type="email">
-        </div>
-        <button [disabled]="!f.valid">Book room</button>
-        <ng-container *ngIf="f.valid;">
-            <span class="disclaimer">
-                    Quisque vestibulum in lacus maximus varius. Mauris a efficitur neque, ac ultricies ligula
-            </span>
-        </ng-container>
-    </form>
+</div>
 </div>

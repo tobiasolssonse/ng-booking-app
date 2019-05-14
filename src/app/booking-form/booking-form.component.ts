@@ -16,7 +16,7 @@ export class BookingFormComponent implements OnInit {
   dateIn: any = new Date();
   dateOut = new Date(this.dateIn - (-24 * 60 * 60 * 1000));
 
-  activeRoom = 'Standard twin';
+  activeRoom = 'Standard Twin';
   constructor(private bookingRoomsService: BookingRoomsService) {
   }
   ngOnInit() {
