@@ -135,12 +135,12 @@ $red: #E95858;
     text-align: center;
     padding-bottom: 25px;
     label{
-        color: $lightgray;
+        color: #FFF;
     }
     input{
         font-size:20px;
         &::placeholder{
-            color: $darkgray;
+            color: $lightgray;
         }
     }
     .ng-invalid{

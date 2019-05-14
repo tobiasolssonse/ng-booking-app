@@ -8,8 +8,7 @@ import { Booking } from '../shared/booking.model';
 })
 export class AdminBookingsComponent implements OnInit {
   bookings: Booking[];
-  constructor(private bookingRoomsService: BookingRoomsService ) {
-  }
+  constructor(private bookingRoomsService: BookingRoomsService ) {}
   ngOnInit() {
     this.bookingRoomsService.getBookings().subscribe(actionArray => {
       this.bookings = actionArray.map(item => {
@@ -20,12 +19,12 @@ export class AdminBookingsComponent implements OnInit {
       });
     });
   }
-  delete(id: string){
+  delete(id: string) {
     if (confirm('Delete booking?')) {
       this.bookingRoomsService.removeBooking(id);
     }
   }
-  checkin(id: string, checkedin: boolean){
+  checkin(id: string, checkedin: boolean) {
     this.bookingRoomsService.checkinBooking(id, checkedin);
   }
   applyFilter(filterValue: string) {
