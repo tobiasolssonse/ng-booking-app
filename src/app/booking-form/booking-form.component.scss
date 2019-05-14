@@ -76,7 +76,7 @@ $red: #E95858;
     }
     &__c{
         height: 0;
-        transition: height 0.5s ease;
+        transition: height 0.33s ease-in-out;
     }
     .activeRoom{
         height: 200px;
