@@ -23,7 +23,7 @@ import { AppComponent } from './app.component';
 import { BookingRoomsService } from './shared/booking-rooms.service';
 import { BookingFormComponent } from './booking-form/booking-form.component';
 import { AdminBookingsComponent } from './admin-bookings/admin-bookings.component';
-import { RoomAdminComponent } from './room-admin/room-admin.component';
+import { AdminRoomComponent } from './admin-room/admin-room.component';
 export const firebaseConfig = {
   apiKey: 'AIzaSyDxY4dKVfCOSCgsjmbKzeUlX0idSwkyI1A',
   authDomain: 'ng-booking-app-9b2a1.firebaseapp.com',
@@ -38,7 +38,7 @@ export const firebaseConfig = {
     AppComponent,
     BookingFormComponent,
     AdminBookingsComponent,
-    RoomAdminComponent,
+    AdminRoomComponent,
   ],
   imports: [
     BrowserModule,

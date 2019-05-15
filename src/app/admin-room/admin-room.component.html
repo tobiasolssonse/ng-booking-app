@@ -1,0 +1,61 @@
+<h2 class="hl hl-big">Rooms</h2>
+<div class="container">
+
+
+   
+  <div class="formContainer">
+    <form #form="ngForm" (submit)="onSubmit(form)">
+      <input 
+      name="id"
+      type="hidden">
+      
+      <label for="imagePath">Image</label>
+      <input
+      value="http://www.naasfabriker.se/wp-content/uploads/2014/06/NF-superiorrum.jpg"
+      ngModel
+      name="imagePath"
+      #imagePath="ngModel"
+      type="text">
+
+      <label for="title">Title</label>     
+      <input
+      value=""
+      ngModel
+      name="name"
+      #name="ngModel"
+      required  
+      type="text">
+
+      <label for="description">Description</label>
+      
+      <textarea
+      rows="6"
+      value=""
+      ngModel
+      #description="ngModel"
+      name="description"
+      required  
+      type="text">
+       </textarea>
+       
+       <button type="submit">Save room</button>
+    </form>
+      
+  </div>
+
+
+
+  <div class="roomsContainer">
+    <div class="room" *ngFor="let room of rooms">
+      <img src="{{room.imagePath}}"/>
+  
+      <h2  #headline ng-model="headline"  contenteditable="editable" class="hl">{{room.name}}</h2>
+      <span #description class="description">
+        {{room.description}}
+      </span>
+      <button class="editRoom" (click)="editRoom(room.id)">Edit room</button>
+      <button class="deleteRoom" (click)="deleteRoom(room.id)">Delete room</button>
+
+    </div>
+  </div>
+</div>

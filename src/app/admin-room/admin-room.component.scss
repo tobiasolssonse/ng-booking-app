@@ -1,0 +1,92 @@
+.hl{
+    text-transform: uppercase;
+    font-size: 1em;
+    &-big{
+        text-align: center;
+        padding: 20px;
+    }
+}
+.container{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 20px;
+    margin-bottom: 20px;
+    background: #000;
+}
+.formContainer{
+    padding:20px 0;
+    label{
+        color:#FFF;
+        display: block;   
+    }
+    input, textarea{
+        box-sizing : border-box;
+        width:100%;
+        padding: 10px;
+        border: none;
+        margin-bottom: 20px;
+        &:focus{
+            outline: none;
+        }
+    }
+    button{
+        width: 100%;
+        text-align: center;
+        color: #000;
+        background-color: #FFF;
+        border-radius: 25px;
+        height: 50px;
+        font-size: 15px;
+        text-transform: uppercase;
+        border: none;
+        line-height: 15px;
+        font-family: 'TransatTextBold', Helvetica, Arial, Sans-Serif;
+        font-weight: 600;
+        &:disabled{
+            background-color: #232323;
+        }
+    }
+   
+}
+.roomsContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    padding: 20px;
+    background-color: #fff;
+  
+}
+.room{
+    position: relative;
+    img{
+        width: 100%;
+        height: auto;
+    }
+    button{
+        background-color: #000;
+        color:#FFF;
+        width: auto;
+        padding: 10px 20px;
+        text-transform: uppercase;
+        display: inline-block;
+        border: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        &:hover{
+            background-color: #FFF;
+            color: #000;
+        }
+        
+    }
+    .deleteRoom{
+        right: auto;
+        left: 0;
+        &:hover{
+            background-color: #E95858;
+            color: #fff;
+        }
+    }
+}
+
