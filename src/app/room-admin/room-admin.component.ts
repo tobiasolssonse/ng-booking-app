@@ -8,7 +8,7 @@ import { BookingRoomsService } from '../shared/booking-rooms.service';
 })
 export class RoomAdminComponent implements OnInit {
   rooms: Room[];
-  headline: string;
+  editable = false;
   constructor(private bookingRoomsService: BookingRoomsService) { }
 
   ngOnInit() {
@@ -21,7 +21,7 @@ export class RoomAdminComponent implements OnInit {
     });
   }
   editRoom(event: any) {
-    console.log(event);
-    console.log(this.headline);
+    this.editable = !this.editable;
+    console.log(this.editable);
   }
 }
