@@ -4,6 +4,7 @@
 
    
   <div class="formContainer">
+    <img class="roomImage" src="http://www.naasfabriker.se/wp-content/uploads/2014/06/twin-naas-fabriker.jpg" />
     <form #form="ngForm" (submit)="onSubmit(form)">
       <input 
       name="id"
@@ -15,11 +16,10 @@
       ngModel
       name="imagePath"
       #imagePath="ngModel"
-      type="text">
+      type="file">
 
       <label for="title">Title</label>     
       <input
-      value=""
       ngModel
       name="name"
       #name="ngModel"
@@ -30,7 +30,6 @@
       
       <textarea
       rows="6"
-      value=""
       ngModel
       #description="ngModel"
       name="description"
@@ -49,7 +48,7 @@
     <div class="room" *ngFor="let room of rooms">
       <img src="{{room.imagePath}}"/>
   
-      <h2  #headline ng-model="headline"  contenteditable="editable" class="hl">{{room.name}}</h2>
+      <h2  #headline ng-model="headline" class="hl">{{room.name}}</h2>
       <span #description class="description">
         {{room.description}}
       </span>

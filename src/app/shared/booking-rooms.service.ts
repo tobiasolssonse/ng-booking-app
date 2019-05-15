@@ -2,11 +2,14 @@ import { Injectable } from '@angular/core';
 import { Room } from '../shared/room.model';
 import { Booking } from '../shared/booking.model';
 import { AngularFirestore } from '@angular/fire/firestore';
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class BookingRoomsService {
+    formData: Room;
     constructor(private afs: AngularFirestore ) {
     }
-
+    
     getRooms() {
       return this.afs.collection<Room>('Rooms').snapshotChanges();
     }

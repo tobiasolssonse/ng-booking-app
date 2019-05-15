@@ -11,8 +11,7 @@ import { NgForm } from '@angular/forms';
 })
 export class AdminRoomComponent implements OnInit {
   rooms: Room[];
-  constructor(private bookingRoomsService: BookingRoomsService) { }
-
+  constructor(public bookingRoomsService: BookingRoomsService) { }
   ngOnInit() {
     this.bookingRoomsService.getRooms().subscribe(actionArray => {
       this.rooms = actionArray.map(item => {
@@ -23,8 +22,16 @@ export class AdminRoomComponent implements OnInit {
       });
     });
   }
-  editRoom(id: string) {
-    console.log(id);
+  resetForm(form?: NgForm) {
+    this.bookingRoomsService.formData = {
+      id: null,
+      name: '',
+      description: '',
+      imagePath: ''
+    }
+  }
+  editRoom(room: Room) {
+    this.bookingRoomsService.formData = Object.assign({}, room);
   }
   deleteRoom(id: string) {
     if (confirm('Delete room?')) {
@@ -32,10 +39,6 @@ export class AdminRoomComponent implements OnInit {
     }
   }
   onSubmit(form: NgForm) {
-    let data = form.value;
     this.bookingRoomsService.addRoom(form.value);
-  }
-  resetForm(form: NgForm) {
-    form.resetForm();
   }
 }
