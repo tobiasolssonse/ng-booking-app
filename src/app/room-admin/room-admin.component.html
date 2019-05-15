@@ -1,0 +1,11 @@
+<h2 class="hl hl-big">Rooms</h2>
+<div class="container">
+  <div class="room" *ngFor="let room of rooms">
+    <img src="{{room.imagePath}}"/>
+    <h2 ng-model="headline" contenteditable="true" class="hl">{{room.name}}</h2>
+    <span class="description">
+      {{room.description}}
+    </span>
+    <button (click)="editRoom($event)">Edit room</button>
+  </div>
+</div>

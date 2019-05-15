@@ -15,7 +15,6 @@ export class BookingFormComponent implements OnInit {
   today = new Date();
   dateIn: any = new Date();
   dateOut = new Date(this.dateIn - (-24 * 60 * 60 * 1000));
-
   activeRoom = 'Standard Twin';
   constructor(private bookingRoomsService: BookingRoomsService) {
   }
