@@ -4,23 +4,30 @@
 
    
   <div class="formContainer">
-    <img class="roomImage" src="http://www.naasfabriker.se/wp-content/uploads/2014/06/twin-naas-fabriker.jpg" />
+    <!-- <img class="roomImage" src="http://www.naasfabriker.se/wp-content/uploads/2014/06/twin-naas-fabriker.jpg" /> -->
     <form #form="ngForm" (submit)="onSubmit(form)">
+      <label for="imagePath">Image path</label>
       <input 
       name="id"
-      type="hidden">
-      
-      <label for="imagePath">Image</label>
+      #id = "ngModel"
+      [(ngModel)]="formData.id"
+      type="hidden">   
       <input
-      value="http://www.naasfabriker.se/wp-content/uploads/2014/06/NF-superiorrum.jpg"
-      ngModel
+      [(ngModel)]="formData.imagePath"
       name="imagePath"
       #imagePath="ngModel"
+      required  
+      type="text">
+      
+      <label for="fileUpload">File upload</label>
+      <input
+      name="fileUpload"
+      value="http://www.naasfabriker.se/wp-content/uploads/2014/06/NF-superiorrum.jpg"
       type="file">
 
       <label for="title">Title</label>     
       <input
-      ngModel
+      [(ngModel)]="formData.name"
       name="name"
       #name="ngModel"
       required  
@@ -30,13 +37,12 @@
       
       <textarea
       rows="6"
-      ngModel
+      [(ngModel)]="formData.description"
       #description="ngModel"
       name="description"
       required  
       type="text">
        </textarea>
-       
        <button type="submit">Save room</button>
     </form>
       
@@ -48,11 +54,11 @@
     <div class="room" *ngFor="let room of rooms">
       <img src="{{room.imagePath}}"/>
   
-      <h2  #headline ng-model="headline" class="hl">{{room.name}}</h2>
+      <h2 #headline ng-model="headline" class="hl">{{room.name}}</h2>
       <span #description class="description">
         {{room.description}}
       </span>
-      <button class="editRoom" (click)="editRoom(room.id)">Edit room</button>
+      <button class="editRoom" (click)="editRoom(room)">Edit room</button>
       <button class="deleteRoom" (click)="deleteRoom(room.id)">Delete room</button>
 
     </div>

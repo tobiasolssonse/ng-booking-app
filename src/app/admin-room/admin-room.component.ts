@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Room } from '../shared/room.model';
 import { BookingRoomsService } from '../shared/booking-rooms.service';
 import { NgForm } from '@angular/forms';
+import { Booking } from '../shared/booking.model';
 @Component({
   selector: 'app-admin-room',
   templateUrl: './admin-room.component.html',
@@ -11,8 +12,10 @@ import { NgForm } from '@angular/forms';
 })
 export class AdminRoomComponent implements OnInit {
   rooms: Room[];
-  constructor(public bookingRoomsService: BookingRoomsService) { }
+  formData: Room;
+  constructor(private bookingRoomsService: BookingRoomsService) { }
   ngOnInit() {
+    this.resetForm();
     this.bookingRoomsService.getRooms().subscribe(actionArray => {
       this.rooms = actionArray.map(item => {
         return {
@@ -22,8 +25,8 @@ export class AdminRoomComponent implements OnInit {
       });
     });
   }
-  resetForm(form?: NgForm) {
-    this.bookingRoomsService.formData = {
+  resetForm() {
+    this.formData = {
       id: null,
       name: '',
       description: '',
@@ -31,7 +34,8 @@ export class AdminRoomComponent implements OnInit {
     }
   }
   editRoom(room: Room) {
-    this.bookingRoomsService.formData = Object.assign({}, room);
+    console.log(room);
+    this.formData = Object.assign({}, room);
   }
   deleteRoom(id: string) {
     if (confirm('Delete room?')) {
@@ -39,6 +43,13 @@ export class AdminRoomComponent implements OnInit {
     }
   }
   onSubmit(form: NgForm) {
-    this.bookingRoomsService.addRoom(form.value);
+    let data = Object.assign({}, form.value);
+    delete data.id;
+    if (form.value.id == null){
+      this.bookingRoomsService.addRoom(form.value);
+    }else{
+      this.bookingRoomsService.updateRoom(form.value);
+    }
+    this.resetForm();
   }
 }

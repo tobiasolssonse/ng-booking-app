@@ -6,10 +6,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
   providedIn: 'root'
 })
 export class BookingRoomsService {
-    formData: Room;
     constructor(private afs: AngularFirestore ) {
     }
-    
     getRooms() {
       return this.afs.collection<Room>('Rooms').snapshotChanges();
     }
@@ -38,12 +36,16 @@ export class BookingRoomsService {
     removeRoom(id: string) {
       this.afs.doc('Rooms/' + id).delete();
     }
+    updateRoom(room: Room) {
+      this.afs.doc('Rooms/' + room.id).update(room);
+    }
     addRoom(room: Room) {
     return new Promise<any>((resolve, reject) => {
       this.afs.collection('Rooms')
           .add(room)
           .then(res => {}, err => reject(err));
     });
+    
   }
 
 }
