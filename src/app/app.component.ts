@@ -11,15 +11,12 @@ export class AppComponent {
   constructor(private authService: AuthService) {
   }
 
-  login() {
-    console.log('login');
-    this.authService.login('tobias@tobiasolsson.se', 'qwerty');
-  }
-  logout(){
+  logout() {
     this.authService.logout();
   }
+
   get isLoggedIn(): boolean {
-    const  user  =  JSON.parse(localStorage.getItem('user'));
-    return  user  !==  null;
+    const user  =  JSON.parse(localStorage.getItem('user'));
+    return user  !==  null;
   }
 }

@@ -43,7 +43,6 @@ export class BookingRoomsService {
           .add(room)
           .then(res => {}, err => reject(err));
     });
-    
   }
 
 }

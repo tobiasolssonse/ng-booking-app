@@ -7,7 +7,6 @@
         <a *ngIf="this.isLoggedIn" routerLinkActive="active" routerLink="rooms">Rooms</a>
         <button class="login" routerLinkActive="active" *ngIf="!this.isLoggedIn" routerLink="login">Login</button>
         <button class="logout" *ngIf="this.isLoggedIn" (click)="logout()">Logout</button>
-
     </div>
 </div>
 <div class="main">
