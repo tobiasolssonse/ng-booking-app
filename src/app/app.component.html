@@ -1,3 +1,12 @@
-<app-admin-room></app-admin-room>
-<app-booking-form></app-booking-form>
-<app-admin-bookings></app-admin-bookings>
+<div class="header">
+    <a routerLink="/" class="title">Tobias Olsson Angular Demo-app</a>
+    <div class="nav">
+        <a routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }" routerLink="/">Book room</a>
+        <a routerLinkActive="active" routerLink="bookings">Bookings</a>
+        <a routerLinkActive="active" routerLink="rooms">Rooms</a>
+    </div>
+</div>
+<div class="main">
+    <router-outlet></router-outlet>
+</div>

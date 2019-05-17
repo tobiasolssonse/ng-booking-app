@@ -1,11 +1,4 @@
-.hl{
-    text-transform: uppercase;
-    font-size: 1em;
-    &-big{
-        text-align: center;
-        padding: 20px;
-    }
-}
+
 .container{
     display: grid;
     grid-template-columns: 1fr 2fr;

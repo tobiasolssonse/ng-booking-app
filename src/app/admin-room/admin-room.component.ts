@@ -46,7 +46,7 @@ export class AdminRoomComponent implements OnInit {
     let data = Object.assign({}, form.value);
     delete data.id;
     if (form.value.id == null){
-      this.bookingRoomsService.addRoom(form.value);
+      this.bookingRoomsService.addRoom(data);
     }else{
       this.bookingRoomsService.updateRoom(form.value);
     }

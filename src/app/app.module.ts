@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-
+import { Routes, RouterModule } from '@angular/router';
 // import { AngularFireStorageModule } from '@angular/fire/storage';
 // import { AngularFireAuthModule } from '@angular/fire/auth';
 // MATERIAL
@@ -33,6 +33,12 @@ export const firebaseConfig = {
   messagingSenderId: '230619374613',
   appId: '1:230619374613:web:758917ba69bed4fa'
 };
+
+const appRoutes: Routes = [
+  { path: '', component: BookingFormComponent },
+  { path: 'bookings', component: AdminBookingsComponent },
+  { path: 'rooms', component: AdminRoomComponent },
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +58,7 @@ export const firebaseConfig = {
     MatSelectModule,
     MatButtonModule,
     MatTableModule,
+    RouterModule.forRoot(appRoutes),
     SatDatepickerModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
