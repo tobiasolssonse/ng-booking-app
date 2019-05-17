@@ -1,18 +1,17 @@
 <div>
-        <h2 class="hl hl-big">Bookings</h2>
-
-  <table>
-      <tr>
-          <th><fa name="check-circle"></fa></th>
-          <th>Check-in</th>
-          <th>Check-out</th>
-          <th>Room</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th><fa name="trash"></fa></th>
-      </tr>
-      <tr *ngFor="let item of bookings"[className]="item.checkedin ? 'checkedin' : ''">
-          <td><a class="checkin" (click)="checkin(item.id, item.checkedin)">
+    <h2 class="hl hl-big">Bookings</h2>
+    <table>
+        <tr>
+            <th><fa name="check-circle"></fa></th>
+            <th>Check-in</th>
+            <th>Check-out</th>
+            <th>Room</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th><fa name="trash"></fa></th>
+        </tr>
+        <tr *ngFor="let item of bookings"[className]="item.checkedin ? 'checkedin' : ''">
+            <td><a class="checkin" (click)="checkin(item.id, item.checkedin)">
                 <ng-container *ngIf="item.checkedin; else second">
                     <fa class="active" name="check-circle"></fa>
                 </ng-container>
@@ -20,16 +19,16 @@
                     <fa name="check-circle"></fa>
                 </ng-template> 
             </a>
-          <td>{{ item.checkInDate.seconds * 1000 | date:'yyyy-MM-dd'}}</td>
-          <td>{{ item.checkOutDate.seconds * 1000 | date:'yyyy-MM-dd' }}</td>
-          <td>{{ item.room }}</td>
-          <td>{{ item.personName }}</td>
-          <td>{{ item.personMail }}</td>
-          <td> <ng-container *ngIf="!item.checkedin;">
+            <td>{{ item.checkInDate.seconds * 1000 | date:'yyyy-MM-dd'}}</td>
+            <td>{{ item.checkOutDate.seconds * 1000 | date:'yyyy-MM-dd' }}</td>
+            <td>{{ item.room }}</td>
+            <td>{{ item.personName }}</td>
+            <td>{{ item.personMail }}</td>
+            <td> <ng-container *ngIf="!item.checkedin;">
                 <a class="delete" (click)="delete(item.id)"><fa name="trash"></fa></a>
-          </ng-container>
-          </td>
-      </tr>
+            </ng-container>
+            </td>
+        </tr>
     </table>
 </div>
 

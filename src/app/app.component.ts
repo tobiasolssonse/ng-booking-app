@@ -8,11 +8,12 @@ import { AuthService } from './shared/auth.service';
 })
 
 export class AppComponent {
-  constructor(authService: AuthService) {
+  constructor(private authService: AuthService) {
   }
 
-  login(){
-    // AuthService.login();
+  login() {
+    console.log('login');
+    // this.authService.login('tobias@tobiasolsson.se', 'qwerty');
   }
 
 }
