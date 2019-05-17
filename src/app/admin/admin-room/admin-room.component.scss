@@ -1,12 +1,41 @@
-
+$large-screen: 1200px;
+$medium-screen: 750px;
+$small-screen: 600px;
+$max-width: em($large-screen);
+@mixin tablet {
+    @media (max-width: #{$medium-screen}) {
+      @content;
+    }
+  }
+  @mixin desktop {
+    @media (max-width: #{$large-screen}) {
+      @content;
+    }
+  }
+  @mixin largescreen {
+    @media (min-width: #{$large-screen}) {
+      @content;
+    }
+  }
+  @mixin phone {
+    @media (max-width: #{$small-screen}) {
+      @content;
+    }
+  }
 .container{
     display: grid;
     grid-template-columns: 1fr 2fr;
     margin-bottom: 20px;
     background: #000;
+    @include phone{
+        grid-template-columns: 1fr; 
+    }
 }
 .formContainer{
     padding:20px;
+    @include phone{
+        grid-row-start: 2;
+    }
     .roomImage{
         width: 100%;
         height: auto;
@@ -55,7 +84,13 @@
     grid-gap: 20px;
     padding: 20px;
     background-color: #fff;
-  
+    @include tablet{
+        grid-template-columns: 1fr 1fr; 
+    }
+    @include phone{
+        grid-template-columns: 1fr; 
+    }
+    
 }
 .room{
     position: relative;

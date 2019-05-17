@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   user: User;
-
-  constructor(public  afAuth: AngularFireAuth, public  router: Router) {
+  public error: string;
+  constructor(private afAuth: AngularFireAuth, private  router: Router) {
     this.afAuth.authState.subscribe(user => {
       if (user) {
         this.user = user;
@@ -23,10 +23,9 @@ export class AuthService {
   async login(email: string, password: string) {
     try {
         await this.afAuth.auth.signInWithEmailAndPassword(email, password)
-        console.log(this.user);
         this.router.navigate(['/bookings']);
     } catch (e) {
-        alert('Error!'  +  e.message);
+        this.error =  e.message;
     }
     }
   async logout(){
@@ -34,5 +33,4 @@ export class AuthService {
       localStorage.removeItem('user');
       this.router.navigate(['/']);
   }
-
 }

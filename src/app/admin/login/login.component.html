@@ -2,7 +2,8 @@
     <form>
         <input type="text" name="email" placeholder="Email" #userEmail required autofocus>
         <input type="password" name="password" placeholder="Password" #userPassword required>
-        <button (click)="authService.login(userEmail.value, userPassword.value)">Login</button> 
+        <button (click)="login(userEmail.value, userPassword.value)">Login</button>
+        <div *ngIf="authService.error"  class="error">{{authService.error}}</div>
       </form>
 </div>
 
