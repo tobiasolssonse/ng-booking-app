@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-// import { AngularFirestore } from '@angular/fire/firestore';
+import { AuthService } from './shared/auth.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,7 +8,11 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  // constructor(db: AngularFirestore) {
-  //   console.log(db.firestore.collection('Rooms'));
-  // }
+  constructor(authService: AuthService) {
+  }
+
+  login(){
+    // AuthService.login();
+  }
+
 }

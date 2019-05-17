@@ -23,11 +23,9 @@ export class BookingRoomsService {
             .then(res => {}, err => reject(err));
       });
     }
-
     removeBooking(id: string) {
         this.afs.doc('Bookings/' + id).delete();
     }
-
     checkinBooking(id: string, checkedin: boolean) {
       checkedin = !checkedin;
       this.afs.doc('Bookings/' + id).update({checkedin: checkedin});
