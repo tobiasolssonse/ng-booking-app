@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-
-import { Room } from '../shared/room.model';
-import { BookingRoomsService } from '../shared/booking-rooms.service';
+import { Room } from '../../shared/room.model';
+import { BookingRoomsService } from '../../shared/booking-rooms.service';
 import { NgForm } from '@angular/forms';
-import { Booking } from '../shared/booking.model';
+
 @Component({
   selector: 'app-admin-room',
   templateUrl: './admin-room.component.html',
@@ -31,7 +30,7 @@ export class AdminRoomComponent implements OnInit {
       name: '',
       description: '',
       imagePath: ''
-    }
+    };
   }
   editRoom(room: Room) {
     console.log(room);
@@ -43,11 +42,11 @@ export class AdminRoomComponent implements OnInit {
     }
   }
   onSubmit(form: NgForm) {
-    let data = Object.assign({}, form.value);
+    const data = Object.assign({}, form.value);
     delete data.id;
-    if (form.value.id == null){
+    if (form.value.id == null) {
       this.bookingRoomsService.addRoom(data);
-    }else{
+    } else {
       this.bookingRoomsService.updateRoom(form.value);
     }
     this.resetForm();

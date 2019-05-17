@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
-import { BookingRoomsService } from '../shared/booking-rooms.service';
-import { Booking } from '../shared/booking.model';
+import { BookingRoomsService } from '../../shared/booking-rooms.service';
+import { Booking } from '../../shared/booking.model';
 @Component({
   selector: 'app-admin-bookings',
   templateUrl: './admin-bookings.component.html',

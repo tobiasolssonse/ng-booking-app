@@ -7,7 +7,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { Routes, RouterModule } from '@angular/router';
 // import { AngularFireStorageModule } from '@angular/fire/storage';
-import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFireAuthModule } from '@angular/fire/auth';
 // MATERIAL
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
@@ -22,8 +22,9 @@ import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-mo
 import { AppComponent } from './app.component';
 import { BookingRoomsService } from './shared/booking-rooms.service';
 import { BookingFormComponent } from './booking-form/booking-form.component';
-import { AdminBookingsComponent } from './admin-bookings/admin-bookings.component';
-import { AdminRoomComponent } from './admin-room/admin-room.component';
+import { AdminBookingsComponent } from './admin/admin-bookings/admin-bookings.component';
+import { AdminRoomComponent } from './admin/admin-room/admin-room.component';
+import { LoginComponent } from './admin/login/login.component';
 export const firebaseConfig = {
   apiKey: 'AIzaSyDxY4dKVfCOSCgsjmbKzeUlX0idSwkyI1A',
   authDomain: 'ng-booking-app-9b2a1.firebaseapp.com',
@@ -38,13 +39,15 @@ const appRoutes: Routes = [
   { path: '', component: BookingFormComponent },
   { path: 'bookings', component: AdminBookingsComponent },
   { path: 'rooms', component: AdminRoomComponent },
-]
+  { path: 'login', component: LoginComponent },
+];
 @NgModule({
   declarations: [
     AppComponent,
     BookingFormComponent,
     AdminBookingsComponent,
     AdminRoomComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

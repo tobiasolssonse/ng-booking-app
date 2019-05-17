@@ -1,0 +1,9 @@
+<div class="formContainer">
+    <form>
+        <input type="text" name="email" placeholder="Email" #userEmail required autofocus>
+        <input type="password" name="password" placeholder="Password" #userPassword required>
+        <button (click)="authService.login(userEmail.value, userPassword.value)">Login</button> 
+      </form>
+</div>
+
+
