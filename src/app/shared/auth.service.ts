@@ -3,8 +3,6 @@ import { auth } from 'firebase/app';
 import { AngularFireAuth } from  '@angular/fire/auth';
 import { User } from 'firebase';
 import { Router } from '@angular/router';
-import { relative } from 'path';
-import { userInfo } from 'os';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +10,7 @@ import { userInfo } from 'os';
 export class AuthService {
   user: User;
   public error: string;
-  
+
   constructor(private afAuth: AngularFireAuth, private  router: Router) {
     this.afAuth.authState.subscribe(user => {
       if (user) {
