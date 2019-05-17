@@ -7,7 +7,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { Routes, RouterModule } from '@angular/router';
 // import { AngularFireStorageModule } from '@angular/fire/storage';
-import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuthModule } from "@angular/fire/auth";
 // MATERIAL
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
