@@ -19,7 +19,7 @@
     border-radius: 5px;
 }
 .nav{
-    a{
+    a, button{
         @extend .title;
         color: lighten(#000,60);;
         &:hover{
@@ -28,6 +28,13 @@
     }
     .active{
         color: #000;
+        &:hover{
+            color: #000;
+        }
+    }
+    button{
+        border: none;
+        cursor: pointer;
         &:hover{
             color: #000;
         }

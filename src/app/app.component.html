@@ -3,9 +3,11 @@
     <div class="nav">
         <a routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }" routerLink="/">Book room</a>
-        <a routerLinkActive="active" routerLink="bookings">Bookings</a>
-        <a routerLinkActive="active" routerLink="rooms">Rooms</a>
-        <button (click)="login()">Login</button>
+        <a *ngIf="this.isLoggedIn" routerLinkActive="active" routerLink="bookings">Bookings</a>
+        <a *ngIf="this.isLoggedIn" routerLinkActive="active" routerLink="rooms">Rooms</a>
+        <button class="login" *ngIf="!this.isLoggedIn" (click)="login()">Login</button>
+        <button class="logout" *ngIf="this.isLoggedIn" (click)="logout()">Logout</button>
+
     </div>
 </div>
 <div class="main">

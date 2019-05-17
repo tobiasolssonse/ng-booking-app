@@ -13,7 +13,13 @@ export class AppComponent {
 
   login() {
     console.log('login');
-    // this.authService.login('tobias@tobiasolsson.se', 'qwerty');
+    this.authService.login('tobias@tobiasolsson.se', 'qwerty');
   }
-
+  logout(){
+    this.authService.logout();
+  }
+  get isLoggedIn(): boolean {
+    const  user  =  JSON.parse(localStorage.getItem('user'));
+    return  user  !==  null;
+  }
 }
