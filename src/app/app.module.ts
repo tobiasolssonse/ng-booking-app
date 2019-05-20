@@ -26,6 +26,7 @@ import { AdminBookingsComponent } from './admin/admin-bookings/admin-bookings.co
 import { AdminRoomComponent } from './admin/admin-room/admin-room.component';
 import { LoginComponent } from './admin/login/login.component';
 import { AuthGuard } from './shared/auth-guard.service';
+import { StartpageComponent } from './startpage/startpage.component';
 export const firebaseConfig = {
   apiKey: 'AIzaSyDxY4dKVfCOSCgsjmbKzeUlX0idSwkyI1A',
   authDomain: 'ng-booking-app-9b2a1.firebaseapp.com',
@@ -37,10 +38,12 @@ export const firebaseConfig = {
 };
 
 const appRoutes: Routes = [
-  { path: '', component: BookingFormComponent },
+  { path: '', component: StartpageComponent },
+  { path: 'book', component: BookingFormComponent },
   { path: 'bookings', canActivate:[AuthGuard], component: AdminBookingsComponent },
   { path: 'rooms', canActivate:[AuthGuard], component: AdminRoomComponent },
   { path: 'login', component: LoginComponent },
+  
 ];
 @NgModule({
   declarations: [
@@ -49,6 +52,7 @@ const appRoutes: Routes = [
     AdminBookingsComponent,
     AdminRoomComponent,
     LoginComponent,
+    StartpageComponent,
   ],
   imports: [
     BrowserModule,

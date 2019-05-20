@@ -12,14 +12,11 @@
         </div>
     </div>
 <div class="bookingform">
-   
         <h2>Book your room</h2>
-
         <form (ngSubmit)="onSubmit()" #f="ngForm">
             <mat-form-field style="height: 0; overflow: hidden; padding:0">
                 <input (dateChange)="addEvent($event)" matInput 
-                [ngModel]="dates"
-                name="dates"
+                ngModel
                 [min]="today"
                 [satDatepicker]="picker">
                 <sat-datepicker #picker [rangeMode]="true"></sat-datepicker>

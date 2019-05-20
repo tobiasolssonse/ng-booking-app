@@ -7,11 +7,11 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export  class AuthService {
   user: User;
   public error: string;
 
-  constructor(private afAuth: AngularFireAuth, private  router: Router) {
+  constructor(private afAuth: AngularFireAuth, private router: Router) {
     this.afAuth.authState.subscribe(user => {
       if (user) {
         this.user = user;
