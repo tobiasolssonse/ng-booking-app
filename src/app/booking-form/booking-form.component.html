@@ -12,11 +12,10 @@
         </div>
     </div>
 <div class="bookingform">
-        <h2>Book your room</h2>
-        <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <h2 *ngIf="!bookingConfirmed">Book your room</h2>
+        <form  *ngIf="!bookingConfirmed" (ngSubmit)="onSubmit()" #f="ngForm">
             <mat-form-field style="height: 0; overflow: hidden; padding:0">
                 <input (dateChange)="addEvent($event)" matInput 
-                ngModel
                 [min]="today"
                 [satDatepicker]="picker">
                 <sat-datepicker #picker [rangeMode]="true"></sat-datepicker>
@@ -80,6 +79,24 @@
                 </span>
             </ng-container>
         </form>
-
+        <div *ngIf="bookingConfirmed" class="reciept">
+                <div class="reciept-inner">
+                    <h1>Booking Confirmed</h1>
+                    <div class="info">
+                            <label>Room</label>
+                            <span>{{activeRoom}}</span>
+                            <label>Check-in</label>
+                            <span>{{dateIn | date:'d MMM yyyy'}}</span>
+                            <label>Check-out</label>
+                            <span>{{dateOut | date:'d MMM yyyy' }}</span>
+                            <label>Name</label>
+                            <span>{{bookingForm.value.name}}</span>
+                            <label>Mail</label>
+                            <span>{{this.bookingForm.value.email}}</span>
+                    </div>
+                    <button>Back to booking</button>
+                </div>
+        </div>
 </div>
+
 </div>

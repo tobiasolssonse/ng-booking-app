@@ -16,6 +16,7 @@ export class BookingFormComponent implements OnInit {
   dateIn: any = new Date();
   dateOut = new Date(this.dateIn - (-24 * 60 * 60 * 1000));
   activeRoom = 'Standard Twin';
+  bookingConfirmed = false;
   constructor(private bookingRoomsService: BookingRoomsService) {
   }
   ngOnInit() {
@@ -36,14 +37,17 @@ export class BookingFormComponent implements OnInit {
   }
   onSubmit() {
     this.bookingRoomsService.updateBooking({
-      room: this.bookingForm.value.room,
+      room: this.activeRoom,
       checkInDate: this.dateIn,
       checkOutDate: this.dateOut,
       personName: this.bookingForm.value.name,
       personMail: this.bookingForm.value.email,
     });
-    this.bookingForm.controls['name'].reset();
-    this.bookingForm.controls['email'].reset();
-  }
+    // this.bookingForm.controls['name'].reset();
+    // this.bookingForm.controls['email'].reset();
+    setTimeout (() => {
+      this.bookingConfirmed = true;
+    }, 500);
 
+  }
 }
