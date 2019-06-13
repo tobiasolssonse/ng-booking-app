@@ -1,6 +1,14 @@
-<div>
-  <h1 class="col-xl-12">
-   Book a room
-  </h1>
-<app-booking-form></app-booking-form>
-<app-admin-bookings></app-admin-bookings>
+<div class="header">
+    <a routerLink="/" class="title">Tobias Olsson Angular Demo-app</a>
+    <div class="nav">
+        <a routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }" routerLink="/book">Book room</a>
+        <a *ngIf="this.isLoggedIn" routerLinkActive="active" routerLink="bookings">Bookings</a>
+        <a *ngIf="this.isLoggedIn" routerLinkActive="active" routerLink="rooms">Rooms</a>
+        <button class="login" routerLinkActive="active" *ngIf="!this.isLoggedIn" routerLink="login">Login</button>
+        <button class="logout" *ngIf="this.isLoggedIn" (click)="logout()">Logout</button>
+    </div>
+</div>
+<div class="main">
+    <router-outlet></router-outlet>
+</div>

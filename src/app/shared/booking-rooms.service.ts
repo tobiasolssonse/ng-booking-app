@@ -2,63 +2,49 @@ import { Injectable } from '@angular/core';
 import { Room } from '../shared/room.model';
 import { Booking } from '../shared/booking.model';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class BookingRoomsService {
-    private ROOMS: Room[] = [
-      new Room(
-          `Standard double`,
-          `Våra standardrum är ljusa och ombonade tack vare
-          vackra material och påkostad inredning. Rummen är luftiga och
-          ljusa med en generös takhöjd på fyra meter och stora spröjsade fönster upp till tak.`,
-          'http://www.naasfabriker.se/wp-content/uploads/2014/06/Standardrum.jpg'),
-      new Room(
-        'Standard twin',
-        `Våra twinrum har två separata sängar och har samma vackra material och
-        ombonade inredning som våra standardrum. Rummen är luftiga och ljusa med
-        vackra spröjsade fönster.`,
-        'http://www.naasfabriker.se/wp-content/uploads/2014/06/twin-naas-fabriker.jpg'),
-      new Room(
-        'Superior',
-        `Våra superiorrum ligger på våning tre och fyra, en del med utsikt över sjön Sävelången.
-        Färgerna i rummen går i ljusa toner, vilket ger en rymlig och luxuös känsla som
-        förstärks av rummens härliga fönster.
-        I två av rummen finns runda sängar.`,
-        'http://www.naasfabriker.se/wp-content/uploads/2014/06/NF-superiorrum.jpg)'),
-      new Room(
-        'Deluxe',
-        `Våra deluxe hörnrum har vacker rymd och är personligt inredda. Rummen är på hela 45 kvm`,
-        'http://www.naasfabriker.se/wp-content/uploads/2014/06/Deluxe-hornrum.jpg')
-    ];
-    private BOOKINGS: Booking[] = [
-      {checkInDate: new Date() , checkOutDate: new Date(),
-        room: 'Standard Double', personName: 'Spindelmannen', personMail: 'spidey@tobiasolsson.se'},
-      {checkInDate: new Date() , checkOutDate: new Date(), room: 'Superior', personName: 'Robin', personMail: 'robin@tobiasolsson.se'},
-      {checkInDate: new Date() , checkOutDate: new Date(), room: 'Deluxe', personName: 'Hulken', personMail: 'hulken@tobiasolsson.se'},
-      {checkInDate: new Date() ,
-        checkOutDate: new Date(), room: 'Standard Double', personName: 'Tarzan', personMail: 'tarzam@tobiasolsson.se'},
-      {checkInDate: new Date() ,
-        checkOutDate: new Date(), room: 'Superior', personName: 'Läderlappen', personMail: 'batboy@tobiasolsson.se'},
-    ];
+    BookingId: string;
     constructor(private afs: AngularFirestore ) {
-      console.log(afs.collection('Bookings').valueChanges());
     }
     getRooms() {
-      return this.ROOMS.slice();
+      return this.afs.collection<Room>('Rooms').snapshotChanges();
     }
+
     getBookings() {
-      return this.BOOKINGS;
+      return this.afs.collection<Booking>('Bookings', ref => ref.orderBy('checkInDate')).snapshotChanges();
+    }
+    getBooking(id: string) {
+      return this.afs.doc('Bookings/' + id ).get();
     }
     updateBooking(book: Booking) {
-      return new Promise<any>((resolve, reject) =>{
+      return new Promise<any>((resolve, reject) => {
         this.afs.collection('Bookings')
-            .add(book)
-            .then(res => {}, err => reject(err));
+          .add(book)
+          .then(res => { this.BookingId = res.id; }, err => reject(err));
       });
     }
-     getNumberOfNights(inDate: string, outDate: string) {
-      // const a = moment(outDate); import moment
-      // const b = moment(inDate);
-      // return a.diff(b, 'days');
+    removeBooking(id: string) {
+      this.afs.doc('Bookings/' + id).delete();
     }
+    checkinBooking(id: string, checkedin: boolean) {
+      checkedin = !checkedin;
+      this.afs.doc('Bookings/' + id).update({ checkedin: checkedin });
+    }
+    removeRoom(id: string) {
+      this.afs.doc('Rooms/' + id).delete();
+    }
+    updateRoom(room: Room) {
+      this.afs.doc('Rooms/' + room.id).update(room);
+    }
+    addRoom(room: Room) {
+      return new Promise<any>((resolve, reject) => {
+        this.afs.collection('Rooms')
+          .add(room)
+          .then(res => {}, err => reject(err));
+    });
+  }
+
 }
