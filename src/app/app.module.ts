@@ -27,15 +27,7 @@ import { AdminRoomComponent } from './admin/admin-room/admin-room.component';
 import { LoginComponent } from './admin/login/login.component';
 import { AuthGuard } from './shared/auth-guard.service';
 import { StartpageComponent } from './startpage/startpage.component';
-export const firebaseConfig = {
-  apiKey: 'AIzaSyDxY4dKVfCOSCgsjmbKzeUlX0idSwkyI1A',
-  authDomain: 'ng-booking-app-9b2a1.firebaseapp.com',
-  databaseURL: 'https://ng-booking-app-9b2a1.firebaseio.com',
-  projectId: 'ng-booking-app-9b2a1',
-  storageBucket: 'ng-booking-app-9b2a1.appspot.com',
-  messagingSenderId: '230619374613',
-  appId: '1:230619374613:web:758917ba69bed4fa'
-};
+import { firebaseConfig } from './firebaseConfig';
 
 const appRoutes: Routes = [
   { path: '', component: StartpageComponent },
@@ -43,7 +35,6 @@ const appRoutes: Routes = [
   { path: 'bookings', canActivate:[AuthGuard], component: AdminBookingsComponent },
   { path: 'rooms', canActivate:[AuthGuard], component: AdminRoomComponent },
   { path: 'login', component: LoginComponent },
-  
 ];
 @NgModule({
   declarations: [
@@ -72,7 +63,8 @@ const appRoutes: Routes = [
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule,
     // AngularFireStorageModule // imports firebase/storage only needed for storage features
-  ],
+  ]
+,
   providers: [
     BookingRoomsService,
     {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},

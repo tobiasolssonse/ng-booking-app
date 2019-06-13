@@ -6,6 +6,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
   providedIn: 'root'
 })
 export class BookingRoomsService {
+    BookingId: string;
     constructor(private afs: AngularFirestore ) {
     }
     getRooms() {
@@ -15,20 +16,22 @@ export class BookingRoomsService {
     getBookings() {
       return this.afs.collection<Booking>('Bookings', ref => ref.orderBy('checkInDate')).snapshotChanges();
     }
-
+    getBooking(id: string) {
+      return this.afs.doc('Bookings/' + id ).get();
+    }
     updateBooking(book: Booking) {
       return new Promise<any>((resolve, reject) => {
         this.afs.collection('Bookings')
-            .add(book)
-            .then(res => {}, err => reject(err));
+          .add(book)
+          .then(res => { this.BookingId = res.id; }, err => reject(err));
       });
     }
     removeBooking(id: string) {
-        this.afs.doc('Bookings/' + id).delete();
+      this.afs.doc('Bookings/' + id).delete();
     }
     checkinBooking(id: string, checkedin: boolean) {
       checkedin = !checkedin;
-      this.afs.doc('Bookings/' + id).update({checkedin: checkedin});
+      this.afs.doc('Bookings/' + id).update({ checkedin: checkedin });
     }
     removeRoom(id: string) {
       this.afs.doc('Rooms/' + id).delete();
@@ -37,8 +40,8 @@ export class BookingRoomsService {
       this.afs.doc('Rooms/' + room.id).update(room);
     }
     addRoom(room: Room) {
-    return new Promise<any>((resolve, reject) => {
-      this.afs.collection('Rooms')
+      return new Promise<any>((resolve, reject) => {
+        this.afs.collection('Rooms')
           .add(room)
           .then(res => {}, err => reject(err));
     });

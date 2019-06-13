@@ -82,19 +82,21 @@
         <div *ngIf="bookingConfirmed" class="reciept">
                 <div class="reciept-inner">
                     <h1>Booking Confirmed</h1>
-                    <div class="info">
+                    <div class="info">  
+                            <label>Booking id</label>
+                            <span> {{bookingID}}</span> 
                             <label>Room</label>
-                            <span>{{activeRoom}}</span>
+                            <span> {{confirmedBooking?.room}}</span>
                             <label>Check-in</label>
-                            <span>{{dateIn | date:'d MMM yyyy'}}</span>
+                            <span>{{confirmedBooking?.checkInDate.toMillis() | date:'yyyy-MM-dd' }}</span>
                             <label>Check-out</label>
-                            <span>{{dateOut | date:'d MMM yyyy' }}</span>
+                            <span>{{confirmedBooking?.checkOutDate.toMillis() | date:'yyyy-MM-dd' }}</span>
                             <label>Name</label>
-                            <span>{{bookingForm.value.name}}</span>
+                            <span>{{confirmedBooking?.personName}}</span>
                             <label>Mail</label>
-                            <span>{{this.bookingForm.value.email}}</span>
+                            <span>{{confirmedBooking?.personMail}}</span>
                     </div>
-                    <button>Back to booking</button>
+                    <button (click)="backToBooking()">Back to booking</button>
                 </div>
         </div>
 </div>
