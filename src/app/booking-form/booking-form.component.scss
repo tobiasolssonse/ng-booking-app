@@ -1,0 +1,188 @@
+$sass: #000;
+$lightgray: #515151;
+$darkgray: #232323;
+$red: #E95858;
+
+.bookingform{
+    max-width: 375px;
+    padding: 20px;
+    background-color: $sass;
+    margin: 0 auto;
+    color: #FFF;
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin-top: -20px;
+    position: relative;
+    h2{
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 1em;
+        border-bottom: 1px solid #FFF;
+        font-family: 'TransatTextBold', Helvetica, Arial, Sans-Serif;
+        font-weight: 600;
+    }
+    button{
+        width: 100%;
+        text-align: center;
+        color: #000;
+        background-color: #FFF;
+        border-radius: 25px;
+        height: 50px;
+        font-size: 15px;
+        text-transform: uppercase;
+        border: none;
+        margin-top: 20px;
+        line-height: 15px;
+        font-family: 'TransatTextBold', Helvetica, Arial, Sans-Serif;
+        font-weight: 600;
+        &:disabled{
+            background-color: #232323;
+        }
+    }
+}
+.room__title{
+    position: absolute;
+    top: 0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background: rgba(0,0,0,.25);
+    &__inner{
+        text-transform: uppercase;
+        color: #FFF;
+        font-size: (50/16)*1em;
+        line-height: 1em;
+        font-family: 'TransatTextBold', Helvetica, Arial, Sans-Serif;
+        font-weight: 600;
+    }
+}
+.roomImg{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 375px;
+    height: 240px;
+    margin: 0 auto;
+    background: #000;
+    &__inner{
+        img{
+            width: 100%;
+            height: 240px;
+            display: block;
+            object-fit: cover;
+        }
+
+    }
+    &__c{
+        height: 0;
+        transition: height 0.33s ease-in-out;
+    }
+    .activeRoom{
+        height: 240px;
+    }
+}
+//event
+.date_container{
+    text-align: center;
+    label{
+        display: block;
+    }
+}
+.event{
+    &-datum{
+        display: inline-block;
+        clear: both;
+        overflow: hidden;
+        margin: 0 auto;
+        padding: .78125em 1.5625em;
+        text-align: center;
+        
+    }
+    &_datum{
+        &__from, &__line, &__to{
+            float: left;
+        }
+        &__line{
+            width:20px;
+            height: 6px;
+            background-color: #FFF;
+            margin: 0 5px;
+            margin-top: 23px;
+        }
+    }
+    &-day{
+        font-size: 3em;
+        font-family: 'TransatTextBold', Helvetica, Arial, Sans-Serif;
+        line-height: 1em;
+        font-weight: 600;
+    }
+    &-month{
+        margin-top: -.5em;
+    }
+}
+
+.mat-form-field{
+    display: block;
+    clear: both;
+}
+.mat-form-field-type-mat-select {
+    padding-bottom: 0;
+}
+
+
+.formel{
+    text-align: center;
+    padding-bottom: 25px;
+    label{
+        color: #FFF;
+    }
+    input{
+        font-size:20px;
+        &::placeholder{
+            color: $lightgray;
+        }
+    }
+    .ng-invalid{
+        color: $red;
+    
+    }
+}
+
+.disclaimer{
+    display: block;
+    text-align: center;
+    font-size: (12/16)*1em;
+    line-height: (15/12)*1em;
+    padding: 20px;
+}
+
+
+
+.reciept{
+    padding: 40px 0;
+    h1{
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 1em;
+        border-bottom: 1px solid #FFF;
+        font-family: 'TransatTextBold', Helvetica, Arial, Sans-Serif;
+        font-weight: 600;
+        margin-bottom: 40px;
+    }
+    label{
+        display: block;
+        border-bottom: 1px solid $lightgray;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        font-size: .6em;
+    }
+    span{
+        padding-bottom: 20px;
+        display: block;
+        font-size: 1.2em;
+    }
+}

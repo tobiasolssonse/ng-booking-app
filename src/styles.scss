@@ -1,0 +1,162 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+$variable: red;
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+body{
+    background-color: #eee;
+    font-size: 16px;
+    line-height: 25px;
+    font-family: 'TransatTextStandard', Helvetica, Arial, Sans-Serif;
+    -moz-font-feature-settings:'c2sc=0,case=0,dnom=0,frac=0,liga=0,lnum=0,numr=0,onum=0,pnum=0,salt=0,smcp=0,ss01=0,subs=0,sups=0,tnum=0';
+}
+/* You can add global styles to this file, and also import other style files */
+// @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+$bv-brand: (
+    50 : #e0e0e0,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #000000,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+    contrast: (
+        50 : #ffffff,
+        100 : #ffffff,
+        200 : #ffffff,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #ffffff,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$booking-app-primary: mat-palette($mat-gray);
+$booking-app-accent:  mat-palette($mat-gray, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$booking-app-warn:  mat-palette($mat-amber);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$booking-app-theme: mat-dark-theme($booking-app-primary, $booking-app-accent, $booking-app-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($booking-app-theme);
+
+
+:not(.mat-calendar-body-disabled):hover    > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-semi-selected), .cdk-keyboard-focused   .mat-calendar-body-active    > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-semi-selected), .cdk-program-focused   .mat-calendar-body-active    > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(.mat-calendar-body-semi-selected) {
+    background-color: rgba(0, 0, 0, 1);
+    color: #FFF;
+}
+:not(.mat-calendar-body-disabled):hover    > .mat-calendar-body-semi-selected, .cdk-keyboard-focused   .mat-calendar-body-active    > .mat-calendar-body-semi-selected, .cdk-program-focused   .mat-calendar-body-active    > .mat-calendar-body-semi-selected {
+    background-color: #000000;
+    color: white;
+}
+.mat-calendar-body-begin-range:not(.mat-calendar-body-end-range) {
+    border-radius: 100% 0 0 100%;
+    background-color: #ccc;
+}
+.mat-calendar-body-end-range:not(.mat-calendar-body-begin-range) {
+    border-radius: 0 100% 100% 0;
+    background-color: #ccc;
+}
+.mat-calendar-body    > tr   .mat-calendar-cell-semi-selected  ~ .mat-calendar-cell-semi-selected {
+    border-radius: 0;
+}
+.mat-calendar-cell-semi-selected {
+    background-color: #ccc;
+}
+.mat-calendar-cell-over > .mat-calendar-body-cell-content {
+    border: #B9AAAB 1px solid;
+}
+.mat-calendar-body-cell-content .mat-calendar-body-selected{
+    background-color: rgba(0, 0, 0, 1);
+    color: #FFF;
+}
+.boldText{
+    font-family: 'TransatTextBold', Helvetica, Arial, Sans-Serif;
+}
+h1,h2{
+    font-family: 'TransatTextBold', Helvetica, Arial, Sans-Serif;
+    font-weight: 700;
+}
+button{
+    padding: 0;
+    &:focus {outline:0;}
+}
+
+.hl{
+    text-transform: uppercase;
+    font-size: 1em;
+    &-big{
+        text-align: center;
+        padding: 20px;
+    }
+}

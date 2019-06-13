@@ -1,0 +1,41 @@
+table {
+    width: 100%; 
+    border-collapse: collapse;
+    th{
+      background-color: #000;
+      color: #fff;
+      padding: 20px 10px;
+      text-align: left;
+      line-height: 1em;
+    }
+    td{
+      padding: 20px 10px;
+      line-height: 1em;
+      color: #555; 
+      background: #eee;
+    } 
+    tr{
+      border-bottom: 1px solid #ccc;
+    }
+    .checkedin{
+      td{
+        color: #000; 
+        background-color: #FFF;  
+              
+      } 
+      .active{
+        color: green;
+      }
+    } 
+  }
+  .delete{
+    cursor: pointer;
+    &:hover{
+      color: #E95858;
+    }
+  }
+  .checkin{
+    cursor: pointer;
+  }
+
+  
